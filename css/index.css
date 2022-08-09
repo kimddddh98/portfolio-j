@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #8AAAE5;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+ul, li, ol {
+  list-style: none;
+}
+
+#full {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+}
+#full > div {
+  width: 100vw;
+  height: 100%;
+}
+#full1 {
+  background-color: red;
+}
+#full2 {
+  background-color: green;
+}
+#full2 div {
+  height: 3000px;
+}
+#full3 {
+  background-color: blue;
+}
+#full4 {
+  background-color: yellow;
+}
+#full5 {
+  background-color: cornsilk;
+}
