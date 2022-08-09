@@ -13,56 +13,63 @@
 <body>
     <div id="full">
         <div id="full1">
-            <button id="btn">></button>
+            <div>12</div>
         </div>
-        <div id="full2"><div></div></div>
+        <div id="full2">2</div>
         <div id="full3">3</div>
         <div id="full4">4</div>
         <div id="full5">5</div>
     </div>
+    <!-- <div id="menu">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div> -->
     <script>
         full.style.width = document.getElementById('full').clientWidth * $('#full>div').length + 'px';
         const offset2 = $('#full2').offset().left
         let index=1;
-        console.log()
         $(window).on("mousewheel", function (event) {
-           
-            console.log(event)
-            console.log(event.target.offsetLeft)
             if (event.originalEvent.wheelDelta <= 0) {
-                    $('#full>div').stop().animate({
-                    height: 90 + 'vh',
-                    width: 90 + 'vw'
-                }, function () {
-                    $('#full').stop().animate({ left: -offset2*index }, function () {
-                        $('#full>div').stop().animate({
-                            height: 100 + '%',
-                            width: 100 + 'vw'
-                        })
-                        if(index==4){
-                            index=index
-                        }
-                        else {index++};
-                    })
-                })
-
-            }
-            else{
-                $('#full>div').stop().animate({
-                    height: 90 + 'vh',
-                    width: 90 + 'vw'
-                }, function () {
-                    $('#full').stop().animate({ left: -offset2*(index-1) }, function () {
-                        $('#full>div').stop().animate({
-                            height: 100 + '%',
-                            width: 100 + 'vw'
-                        })
-                        index--
-                    })
-                })
-            }
+                if(index==$('#full>div').length){
+                    index=index
+                }
                 
+                else {
+                    $('#full>div').stop().animate({
+                        height: 90 + 'vh',
+                        width: 90 + 'vw'
+                    },function(){
+                        $('#full').stop().animate({ left: -offset2*index },function(){
+                            $('#full>div').stop().animate({
+                            height: 100 + '%',
+                            width: 100 + 'vw'
+                            })
+                            index++
+                        })
+                    })
+                };
+            }
+            else if(event.originalEvent.wheelDelta>0){
 
+                if(index==1){index=index}
+                
+                else {
+                    $('#full>div').stop().animate({
+                        height: 90 + 'vh',
+                        width: 90 + 'vw'
+                    },function(){
+                        $('#full').stop().animate({ left: -offset2*(index-2) },function(){
+                            console.log(index);
+                            index--
+                            $('#full>div').stop().animate({
+                            height: 100 + '%',
+                            width: 100 + 'vw'
+                            })
+                        })
+                    })
+                };
+            }
         })
     </script>
 </body>
