@@ -45,10 +45,12 @@ $(function(){
             }
         })
         // $('.circleItem').mouseover(function(){
-        //     $(this).css({Transform:'translate(-50%,-50%) perspective(1200px) rotateX(0deg) rotateY(150deg) rotateZ(0deg)'})
+        //     console.log($(this).css('transform'))
+            
+        //     // $(this).css({Transform:` rotateY(220deg) translateZ(30vw) translateY(-10vw)`})
         // });
         // $('.circleItem').mouseout(function(){
-        //     $(this).css({Transform:'translate(-50%,-50%) perspective(1200px) rotateX(0deg) rotateY(140deg) rotateZ(0deg)'})
+        //     // $(this).css({Transform:' rotateY(220deg) translateZ(30vw) translateY(-10vw)'})
         // })
 
         

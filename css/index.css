@@ -16,7 +16,6 @@ ul, li, ol {
 html, body {
   width: 100%;
   height: 100%;
-  overflow: hidden;
   background-color: #8AAAE5;
 }
 
@@ -34,47 +33,63 @@ html, body {
   background-color: aliceblue;
 }
 
-#menu {
-  width: 33.3vw;
-  height: 33.3vw;
-  background-color: aliceblue;
-  perspective: 1200px;
-  border-radius: 50%;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+#container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 3000px;
 }
-#menu > div {
+
+#menu {
+  width: 33vw;
+  height: 33vw;
+  position: relative;
+  transform-style: preserve-3d;
+  background-color: lightgreen;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.circleItem {
   position: absolute;
-  background-color: black;
-  width: 33.3vw;
-  height: 33.3vw;
-  transition: 1s;
+  top: 0;
+  left: 0;
+  width: 30vw;
+  height: 30vw;
+  border: 1px solid black;
+  background-color: #000;
   opacity: 0.8;
 }
-#menu > div img {
+.circleItem:hover {
+  -webkit-animation-name: spin;
+          animation-name: spin;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+}
+.circleItem img {
   width: 100%;
   height: 100%;
 }
-#menu .circleItem1 {
-  top: -20%;
-  left: -150%;
-  transform: translate(0%, 0%) rotateX(0deg) rotateY(-30deg) translateZ(-300px);
+.circleItem:nth-child(1) {
+  transform: rotateY(220deg) translateZ(30vw) translateY(-15vw);
+  z-index: 1;
 }
-#menu .circleItem2 {
-  top: 10%;
-  left: 10%;
-  transform: translate(0, 0) rotateX(0deg) rotateY(3deg) translateZ(50px);
-}
-#menu .circleItem3 {
-  top: 30%;
-  left: 180%;
-  transform: translate(0%, 0) rotateX(0deg) rotateY(55deg) translateZ(-350px);
+.circleItem:nth-child(2) {
+  transform: rotateY(295deg) translateZ(30vw) translateY(-5vw);
   z-index: 2;
 }
-#menu .circleItem4 {
-  top: 130%;
-  left: -155%;
-  transform: translate(0%, 0) rotateX(0deg) rotateY(125deg) translateZ(3000px);
+.circleItem:nth-child(3) {
+  transform: rotateY(5deg) translateZ(30vw) translateY(0);
+  z-index: 3;
+}
+.circleItem:nth-child(4) {
+  transform: rotateY(65deg) translateZ(30vw) translateY(5vw);
+  z-index: 4;
+}
+.circleItem:nth-child(5) {
+  transform: rotateY(140deg) translateZ(30vw) translateY(20vw);
+  z-index: 5;
 }
