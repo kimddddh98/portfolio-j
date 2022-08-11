@@ -3,7 +3,7 @@
 html,body{
     width: 100%;
     height: 100%;
-    // overflow: hidden;
+    overflow: hidden;
     background-color:#8AAAE5;
 }
 #full{
@@ -52,31 +52,46 @@ html,body{
     border: 1px solid black;    
     background-color:#000;
     opacity: 0.8;
+    transition: 1s;
 
-    &:hover{
+    // &:hover{
 
-        animation-name: spin;
+    //     animation-name: spin;
 
-    animation-duration: 2s;
-    animation-fill-mode: backwards;
-    }
+    // animation-duration: 2s;
+    // animation-fill-mode: backwards;
+    // }
     // animation-timing-function: ;
     img{
         width: 100%;
         height: 100%;
     }
     &:nth-child(1){
-        transform: rotateY(220deg) translateZ(30vw) translateY(-15vw);
-
+        // transform: rotateY(220deg) translateZ(30vw) translateY(-15vw);
+        // transform: matrix3d(
+        //     -0.766044, 0, 0.642788, 0,
+        //      0, 1, 0, 0,
+        //     -0.642788, 0, -0.766044, 0,
+        //     -370.246, -288, -441.242, 1);
         z-index: 1;
+        
     }
     &:nth-child(2){
-        transform: rotateY(295deg) translateZ(30vw) translateY(-5vw);
+        // ;
+        // transform:matrix3d(
+        // 0.422618, 0, 0.906308, 0,
+        // 0, 1, 0, 0,
+        // -0.906308, 0, 0.422618, 0,
+        // -522.033, -96, 243.428, 1); 
         z-index: 2;
 
     }
     &:nth-child(3){
-        transform: rotateY(5deg) translateZ(30vw) translateY(0);
+        // transform: matrix3d(
+        // 0.996195, 0, -0.0871557, 0,
+        // 0, 1, 0, 0,
+        // 0.0871557, 0, 0.996195, 0,
+        // 25.0486, 0, 286.306, 1);
         z-index: 3;
 
     }
@@ -86,9 +101,17 @@ html,body{
 
     }
     &:nth-child(5){
-        transform: rotateY(140deg) translateZ(30vw) translateY(20vw);
+        transform: rotateY(130deg) translateZ(30vw) translateY(20vw);
         z-index: 5;
 
+    }
+    &:nth-child(6){
+        transform: rotateY(195deg) translateZ(30vw) translateY(30vw);
+        z-index: 6;
+    }
+    &:nth-child(7){
+        transform: rotateY(270deg) translateZ(30vw) translateY(40vw);
+        z-index: 7;
     }
 
     // @keyframes spin{

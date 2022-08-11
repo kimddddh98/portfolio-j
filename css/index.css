@@ -16,6 +16,7 @@ ul, li, ol {
 html, body {
   width: 100%;
   height: 100%;
+  overflow: hidden;
   background-color: #8AAAE5;
 }
 
@@ -60,29 +61,19 @@ html, body {
   border: 1px solid black;
   background-color: #000;
   opacity: 0.8;
-}
-.circleItem:hover {
-  -webkit-animation-name: spin;
-          animation-name: spin;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-  -webkit-animation-fill-mode: backwards;
-          animation-fill-mode: backwards;
+  transition: 1s;
 }
 .circleItem img {
   width: 100%;
   height: 100%;
 }
 .circleItem:nth-child(1) {
-  transform: rotateY(220deg) translateZ(30vw) translateY(-15vw);
   z-index: 1;
 }
 .circleItem:nth-child(2) {
-  transform: rotateY(295deg) translateZ(30vw) translateY(-5vw);
   z-index: 2;
 }
 .circleItem:nth-child(3) {
-  transform: rotateY(5deg) translateZ(30vw) translateY(0);
   z-index: 3;
 }
 .circleItem:nth-child(4) {
@@ -90,6 +81,14 @@ html, body {
   z-index: 4;
 }
 .circleItem:nth-child(5) {
-  transform: rotateY(140deg) translateZ(30vw) translateY(20vw);
+  transform: rotateY(130deg) translateZ(30vw) translateY(20vw);
   z-index: 5;
+}
+.circleItem:nth-child(6) {
+  transform: rotateY(195deg) translateZ(30vw) translateY(30vw);
+  z-index: 6;
+}
+.circleItem:nth-child(7) {
+  transform: rotateY(270deg) translateZ(30vw) translateY(40vw);
+  z-index: 7;
 }
