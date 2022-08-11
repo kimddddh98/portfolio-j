@@ -12,19 +12,14 @@ $(function(){
         let circle6=$('.circleItem').eq(5).prop('style');
         let circle7=$('.circleItem').eq(6).prop('style');
         let found=/-*\d+/g;
-        
         let rY1=circle1.transform.match(found)[0];
-        let tZ1=circle1.transform.match(found)[1];
-        let tY1=circle1.transform.match(found)[2];
-        console.log(circle1.transform);
-        console.log(circle1.transform.match(found));
-        
+        let tZ1=parseInt(circle1.transform.match(found)[1]);
+        let tY1=parseInt(circle1.transform.match(found)[2])
+        console.log(typeof parseInt(rY1));
         
         let rY2=circle2.transform.match(found)[0];
         let tZ2=circle2.transform.match(found)[1];
         let tY2=circle2.transform.match(found)[2];
-        console.log(tY1);
-        console.log(tY2);
 
         let rY3=circle3.transform.match(found)[0];
         let tZ3=circle3.transform.match(found)[1];
@@ -49,25 +44,24 @@ $(function(){
         let tY7=circle7.transform.match(found)[2];
 
             if (e.originalEvent.wheelDelta <= 0){
-            circle1.transform=`rotateY(${parseInt(rY1)-32.5}deg) translateZ(30vw) translateY(${parseInt(tY1-10)}vw)`
-            circle2.transform=`rotateY(${parseInt(rY2-32.5)}deg) translateZ(30vw) translateY(${parseInt(tY2)-10}vw)`
-            circle3.transform=`rotateY(${parseInt(rY3-32.5)}deg) translateZ(30vw) translateY(${parseInt(tY3)-10}vw)`
-            circle4.transform=`rotateY(${parseInt(rY4-32.5)}deg) translateZ(30vw) translateY(${parseInt(tY4)-10}vw)`
-            circle5.transform=`rotateY(${parseInt(rY5-32.5)}deg) translateZ(30vw) translateY(${parseInt(tY5)-10}vw)`
-            circle6.transform=`rotateY(${parseInt(rY6-32.5)}deg) translateZ(30vw) translateY(${parseInt(tY6)-10}vw)`
-            circle7.transform=`rotateY(${parseInt(rY7-32.5)}deg) translateZ(30vw) translateY(${parseInt(tY7)-10}vw)`
-                // console.log(parseInt(tY1)-5)
+            circle1.transform=`rotateY(${parseInt(rY1-65)}deg) translateZ(30vw) translateY(${parseInt(tY1-10)}vw)`
+            circle2.transform=`rotateY(${parseInt(rY2-65)}deg) translateZ(30vw) translateY(${parseInt(tY2-10)}vw)`
+            circle3.transform=`rotateY(${parseInt(rY3-65)}deg) translateZ(30vw) translateY(${parseInt(tY3-10)}vw)`
+            circle4.transform=`rotateY(${parseInt(rY4-65)}deg) translateZ(30vw) translateY(${parseInt(tY4-10)}vw)`
+            circle5.transform=`rotateY(${parseInt(rY5-65)}deg) translateZ(30vw) translateY(${parseInt(tY5-10)}vw)`
+            circle6.transform=`rotateY(${parseInt(rY6-65)}deg) translateZ(30vw) translateY(${parseInt(tY6-10)}vw)`
+            circle7.transform=`rotateY(${parseInt(rY7-65)}deg) translateZ(30vw) translateY(${parseInt(tY7-10)}vw)`
+                console.log(parseInt(rY1)+65)
+        }
+            else{
+                circle1.transform=`rotateY(${parseInt(rY1)+65}deg) translateZ(30vw) translateY(${parseInt(tY1)+10}vw)`
+                circle2.transform=`rotateY(${parseInt(rY2)+65}deg) translateZ(30vw) translateY(${parseInt(tY2)+10}vw)`
+                circle3.transform=`rotateY(${parseInt(rY3)+65}deg) translateZ(30vw) translateY(${parseInt(tY3)+10}vw)`
+                circle4.transform=`rotateY(${parseInt(rY4)+65}deg) translateZ(30vw) translateY(${parseInt(tY4)+10}vw)`
+                circle5.transform=`rotateY(${parseInt(rY5)+65}deg) translateZ(30vw) translateY(${parseInt(tY5)+10}vw)`
+                circle6.transform=`rotateY(${parseInt(rY6)+65}deg) translateZ(30vw) translateY(${parseInt(tY6)+10}vw)`
+                circle7.transform=`rotateY(${parseInt(rY7)+65}deg) translateZ(30vw) translateY(${parseInt(tY7)+10}vw)`
             }
-            else if(e.originalEvent.wheelDelta > 0) {
-                circle1.transform=`rotateY(${parseInt(rY1)+32.5}deg) translateZ(30vw) translateY(${parseInt(tY1)+5}vw)`
-                circle2.transform=`rotateY(${parseInt(rY2)+32.5}deg) translateZ(30vw) translateY(${parseInt(tY2)+5}vw)`
-                circle3.transform=`rotateY(${parseInt(rY3)+32.5}deg) translateZ(30vw) translateY(${parseInt(tY3)+5}vw)`
-                circle4.transform=`rotateY(${parseInt(rY4)+32.5}deg) translateZ(30vw) translateY(${parseInt(tY4)+5}vw)`
-                circle5.transform=`rotateY(${parseInt(rY5)+32.5}deg) translateZ(30vw) translateY(${parseInt(tY5)+5}vw)`
-                circle6.transform=`rotateY(${parseInt(rY6)+32.5}deg) translateZ(30vw) translateY(${parseInt(tY6)+5}vw)`
-                circle7.transform=`rotateY(${parseInt(rY7)+32.5}deg) translateZ(30vw) translateY(${parseInt(tY7)+5}vw)`
-                
-            };
         
         })
 
