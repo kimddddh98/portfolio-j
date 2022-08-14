@@ -29,6 +29,7 @@ html,body{
     justify-content: center;
     align-items: center;
     perspective: 3000px;
+    // display: none;
     
 }
 
@@ -38,7 +39,7 @@ html,body{
     height: 33vw;
     position: relative;
     transform-style: preserve-3d;
-    background-color: lightgreen;
+    background-color:darkcyan;
     border-radius: 50%;
     z-index:- 1;
 
