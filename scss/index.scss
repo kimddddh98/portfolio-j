@@ -1,10 +1,26 @@
 @charset "utf-8";
 @import "reset";
+$bg:#DCE2F0;
+@keyframes spin{
+       
+    from{
+        transform: rotate(0deg);
+
+    }
+    to{
+        transform: rotate(360deg);
+    }
+
+}
 html,body{
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color:#8AAAE5;
+    background-color:$bg;
+}
+header{
+    background-color: darkcyan;
+    height: 200px;
 }
 #full{
     // width: 100%;
@@ -19,7 +35,7 @@ html,body{
         width: 100vw;
         height: 100%;
         // position: relative;
-        background-color: aliceblue;
+        background-color: #50586C;
     }
  
 }
@@ -30,6 +46,17 @@ html,body{
     align-items: center;
     perspective: 3000px;
     // display: none;
+        .circle{
+            width: 33vw;
+            height: 33vw;
+            position: absolute;
+            z-index:- 1;
+            animation: spin 5s linear infinite;
+                border-radius: 70% 30% 67% 33% / 30% 50% 50% 70% ;
+                background-color:black;
+    
+            
+    }
     
 }
 
@@ -39,10 +66,11 @@ html,body{
     height: 33vw;
     position: relative;
     transform-style: preserve-3d;
-    background-color:darkcyan;
-    border-radius: 50%;
+    // background-color:darkcyan;
+    // border-radius: 70% 30% 67% 33% / 30% 50% 50% 70% ;
     z-index:- 1;
-
+   
+    
 }
 .circleItem{
     cursor: pointer;
@@ -51,8 +79,8 @@ html,body{
     left: 0;
     width: 30vw;
     height: 30vw;
-    border: 1px solid black;    
-    background-color:#000;
+    // border: 1px solid black;    
+    background-color:#50586C;
     opacity: 0.8;
     transition: 1s;
 
@@ -92,11 +120,5 @@ html,body{
         z-index: 7;
     }
 
-    // @keyframes spin{
-       
-    //     to{
-    //         transform: scale(1.2);
-    //     }
-
-    // }
+    
 }

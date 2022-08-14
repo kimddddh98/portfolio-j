@@ -13,11 +13,33 @@ ul, li, ol {
   list-style: none;
 }
 
+@-webkit-keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: #8AAAE5;
+  background-color: #DCE2F0;
+}
+
+header {
+  background-color: darkcyan;
+  height: 200px;
 }
 
 #full {
@@ -31,7 +53,7 @@ html, body {
 #full > div {
   width: 100vw;
   height: 100%;
-  background-color: aliceblue;
+  background-color: #50586C;
 }
 
 #container {
@@ -41,14 +63,22 @@ html, body {
   align-items: center;
   perspective: 3000px;
 }
+#container .circle {
+  width: 33vw;
+  height: 33vw;
+  position: absolute;
+  z-index: -1;
+  -webkit-animation: spin 5s linear infinite;
+          animation: spin 5s linear infinite;
+  border-radius: 70% 30% 67% 33%/30% 50% 50% 70%;
+  background-color: black;
+}
 
 #menu {
   width: 33vw;
   height: 33vw;
   position: relative;
   transform-style: preserve-3d;
-  background-color: darkcyan;
-  border-radius: 50%;
   z-index: -1;
 }
 
@@ -59,8 +89,7 @@ html, body {
   left: 0;
   width: 30vw;
   height: 30vw;
-  border: 1px solid black;
-  background-color: #000;
+  background-color: #50586C;
   opacity: 0.8;
   transition: 1s;
 }

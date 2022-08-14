@@ -1,7 +1,8 @@
 $(function(){
     
     $('.circleItem').on('click', function () {
-        let circleIndex = $(this).index();
+        let circleIndex =$(this).index();
+        console.log(circleIndex)
         $(this).siblings().hide();
         $(this).animate({ scale: '700%' }, 1000, function () {
             $(this).css({ transform: 'scale(100%)' });
@@ -57,22 +58,29 @@ $(function(){
         let circleArr = [];
         let found = /-\d+|\d+/g;
         if (e.originalEvent.wheelDelta <= 0) {
-            if($('.circleItem:last').prop('style').transform!='rotateY(14deg) translateZ(30vw) translateY(0vw)'){
+            
+            if($('.circleItem:last').prop('style').transform!='rotateY(0deg) translateZ(30vw) translateY(0vw)'){
                 for (let i = 0; i < $('.circleItem').length; i++) {
                     circleArr.push($('.circleItem').eq(i).prop('style').transform.match(found))
                     $('.circleItem').eq(i).prop('style').transform =
-                        `rotateY(${parseInt(circleArr[i][0]) - 32}deg) translateZ(30vw) translateY(${parseInt(circleArr[i][2]) - 5}vw)`
+                        `rotateY(${parseInt(circleArr[i][0]) - 35}deg) translateZ(30vw) translateY(${parseInt(circleArr[i][2]) - 5}vw)`
                 }
+                
             }
+           
         }
         else {
-            if($('.circleItem:first').prop('style').transform!='rotateY(-2deg) translateZ(30vw) translateY(0vw)'){
+            if($('.circleItem:first').prop('style').transform!='rotateY(0deg) translateZ(30vw) translateY(0vw)'){
                 for (let i = 0; i < $('.circleItem').length; i++) {
                     circleArr.push($('.circleItem').eq(i).prop('style').transform.match(found))
                     $('.circleItem').eq(i).prop('style').transform =
-                        `rotateY(${parseInt(circleArr[i][0]) + 32}deg) translateZ(30vw) translateY(${parseInt(circleArr[i][2]) + 5}vw)`
+                        `rotateY(${parseInt(circleArr[i][0]) + 35}deg) translateZ(30vw) translateY(${parseInt(circleArr[i][2]) + 5}vw)`
     
                 }
+                console.log(
+                    $('.circleItem:first').prop('style').transform
+        
+                    )
             }
         };
     })
