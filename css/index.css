@@ -53,6 +53,7 @@ html, body {
 }
 
 .circleItem {
+  cursor: pointer;
   position: absolute;
   top: 0;
   left: 0;
@@ -77,18 +78,14 @@ html, body {
   z-index: 3;
 }
 .circleItem:nth-child(4) {
-  transform: rotateY(65deg) translateZ(30vw) translateY(5vw);
   z-index: 4;
 }
 .circleItem:nth-child(5) {
-  transform: rotateY(130deg) translateZ(30vw) translateY(20vw);
   z-index: 5;
 }
 .circleItem:nth-child(6) {
-  transform: rotateY(195deg) translateZ(30vw) translateY(30vw);
   z-index: 6;
 }
 .circleItem:nth-child(7) {
-  transform: rotateY(270deg) translateZ(30vw) translateY(40vw);
   z-index: 7;
 }
