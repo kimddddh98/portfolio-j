@@ -1,114 +1,104 @@
-$(function(){
-    let circleHover;
-    let found = /-\d+|\d+/g;
-    $('.circleItem').on('mouseover', function () {
-        circleHover = [];
-        circleHover.push($(this).prop('style').transform.match(found))
-        $(this).prop('style').transform =
-        `rotateY(${parseInt(circleHover[0][0])-5}deg) translateZ(${parseInt(circleHover[0][1])+5}vw) translateY(${parseInt(circleHover[0][2])}vw)`
-    })
-    $('.circleItem').on('mouseout', function () {
-        circleHover = [];
-        circleHover.push($(this).prop('style').transform.match(found))
-        $(this).prop('style').transform =
-        `rotateY(${parseInt(circleHover[0][0])+5}deg) translateZ(${parseInt(circleHover[0][1])-5}vw) translateY(${parseInt(circleHover[0][2])}vw)`
-    })
-    // document.getElementById('home').onclick=function(){
-    //     $('#full').css({
-    //         display: 'none',
-    //     });
-    //     $('#container').show();
-    //     $('.circleItem').show();
-    //     // $('header ul li a').css({color:'#DCE2F0'})
+window.onload = () => {
+    new Vue({
+        el: '#app',
+        data: {
+            main: true,
+            sub: false,
+            circleStyle: [
+                { transform: "rotateY(0deg) translateZ(30vw) translateY(0vw)" },
+                { transform: "rotateY(70deg) translateZ(30vw) translateY(10vw)" },
+                { transform: "rotateY(140deg) translateZ(30vw) translateY(20vw)" },
+                { transform: "rotateY(210deg) translateZ(30vw) translateY(30vw)" },
+                { transform: "rotateY(280deg) translateZ(30vw) translateY(40vw)" },
+            ],
+            click: 0
+        },
+        methods: {
+            subPage: function (e) {
+                this.main = false;
+                this.sub = true;
+                for (let i = 0; i < document.querySelectorAll('.circleItem').length; i++) {
+                    if (e.target == document.querySelectorAll('.circleItem')[i]) {
+                        full.style.width = 100 * this.circleStyle.length + 'vw'
+                        setTimeout(() => {
+                            const offset = document.querySelectorAll('.full')[1].offsetWidth;
+                            full.style.left = -offset * i + 'px'
+                        }, 0)
+                        return this.click = i
 
-    //     // $(this).css({color:'red'})
+                    }
+                }
+            },
+            mainWheel: function (e) {
+                let found = /-\d+|\d+/g;
+                let circleItem = document.getElementById('menu').children;
+                let circleArr = [];
 
-    //     for (let i = 0; i < $('.circleItem').length; i++) {
-    //         // circleArr.push($('.circleItem').eq(i).prop('style').transform.match(found))
-    //         $('.circleItem').eq(i).prop('style').transform =
-    //             `rotateY(${parseInt(70*i)}deg) translateZ(30vw) translateY(${parseInt(10*i)}vw)`
-    //     }
-    // }
-        
-    $('.circleItem').on('click', function () {
-        let circleIndex =$(this).index();
-        $(this).siblings().hide();
-        // $(this).prop('style').transform='rotateY(0deg) translateZ(30vw) translateY(0vw)'
-        $(this).css('transform','rotateY(0deg) translateZ(30vw) translateY(0vw)')
-        $(this).animate({ scale: '700%' }, 1000, function () {
-            $('#container').hide();
-            $('#full').css({
-                width: 100 * $('#full>div').length + 'vw',
-                display: 'flex'
-            });
-            $(this).css({ scale: 'none',rotateY:'none',translateZ:'none',translateY:'none' });
-            $('header ul li a').eq(circleIndex+1).css({color:'red'})
-            const offset2 = $('#full2').offset().left
-            $('#full').css({ left: -offset2 * circleIndex })
-            let index = circleIndex + 1;
-            $('#full').on("mousewheel", function (event) {
-                if (event.originalEvent.wheelDelta <= 0) {
-                    if (index != $('#full>div').length) {
-                        $('#full>div').stop().animate({
-                            height: 85 + 'vh',
-                            width: 85 + 'vw'
-                        }, function () {
-                            $('#full').stop().animate({ left: -offset2 * index }, function () {
-                                $('#full>div').stop().animate({
-                                    height: 100 + '%',
-                                    width: 100 + 'vw'
-                                })
-                                index++
-                            })
-                        })
-                    };
+                if (e.wheelDelta <= 0) {
+
+                    if (circleItem[0].style.transform != 'rotateY(-280deg) translateZ(30vw) translateY(-40vw)') {
+                        for (let i = 0; i < circleItem.length; i++) {
+                            circleArr.push(circleItem[i].style.transform.match(found))
+                            circleItem[i].style.transform =
+                                `rotateY(${parseInt(circleArr[i][0]) - 35}deg) translateZ(30vw) translateY(${parseInt(circleArr[i][2]) - 5}vw)`
+                        }
+                    }
                 }
                 else {
-                    if (index != 1) {
-                        $('#full>div').stop().animate({
-                            height: 85 + 'vh',
-                            width: 85 + 'vw'
-                        }, function () {
-                            $('#full').stop().animate({ left: -offset2 * (index - 2) }, function () {
-                                index--
-                                $('#full>div').stop().animate({
-                                    height: 100 + '%',
-                                    width: 100 + 'vw'
-                                })
-                            })
-                        })
-                    };
-                }
-            })
-        })
-    })
-    $('#container').on('mousewheel', function (e) {
-        let circleArr = [];
-        let found = /-\d+|\d+/g;
-        if (e.originalEvent.wheelDelta <= 0) {
-            
-            if($('.circleItem:first').prop('style').transform!='rotateY(-280deg) translateZ(30vw) translateY(-40vw)')
-            {
-                for (let i = 0; i < $('.circleItem').length; i++) {
-                    circleArr.push($('.circleItem').eq(i).prop('style').transform.match(found))
-                    $('.circleItem').eq(i).prop('style').transform =
-                        `rotateY(${parseInt(circleArr[i][0]) - 35}deg) translateZ(30vw) translateY(${parseInt(circleArr[i][2]) - 5}vw)`
-                }
-            }
-           
-        }
-        else {
-            if($('.circleItem:last').prop('style').transform!='rotateY(280deg) translateZ(30vw) translateY(40vw)'){
-                for (let i = 0; i < $('.circleItem').length; i++) {
-                    circleArr.push($('.circleItem').eq(i).prop('style').transform.match(found))
-                    $('.circleItem').eq(i).prop('style').transform =
-                        `rotateY(${parseInt(circleArr[i][0]) + 35}deg) translateZ(30vw) translateY(${parseInt(circleArr[i][2]) + 5}vw)`
-    
-                }
-            }
-        };
-    })
 
-        
-        
-});
+                    if (circleItem[0].style.transform != 'rotateY(0deg) translateZ(30vw) translateY(0vw)') {
+                        for (let i = 0; i < circleItem.length; i++) {
+                            circleArr.push(circleItem[i].style.transform.match(found))
+                            circleItem[i].style.transform =
+                                `rotateY(${parseInt(circleArr[i][0]) + 35}deg) translateZ(30vw) translateY(${parseInt(circleArr[i][2]) + 5}vw)`
+                        }
+                    }
+                }
+            },
+            subWheel(e) {
+                const offset = document.querySelectorAll('.full')[1].offsetWidth
+                const fullbox = document.querySelectorAll('.full');
+                const full = document.getElementById('full');
+                if (e.wheelDelta <= 0) {
+                    if (this.click != fullbox.length - 1) {
+                        for (let i = 0; i < fullbox.length; i++) {
+                            fullbox[i].style.width = 90 + 'vw'
+                            fullbox[i].style.height = 90 + 'vh'
+                        }
+                        full.style.left = -offset * (this.click + 1) + 'px'
+                        setTimeout(() => {
+                            for (let i = 0; i < fullbox.length; i++) {
+                                fullbox[i].style.width = 100 + 'vw'
+                                fullbox[i].style.height = 100 + 'vh'
+                            }
+
+                        }, 700)
+                        return this.click++
+                    }
+
+                }
+                else {
+                    if (this.click != 0) {
+                        for (let i = 0; i < fullbox.length; i++) {
+                            fullbox[i].style.width = 90 + 'vw'
+                            fullbox[i].style.height = 90 + 'vh'
+                        }
+                        full.style.left = -offset * (this.click - 1) + 'px'
+
+                        setTimeout(() => {
+                            for (let i = 0; i < fullbox.length; i++) {
+                                fullbox[i].style.width = 100 + 'vw'
+                                fullbox[i].style.height = 100 + 'vh'
+                            }
+                            return this.click--
+
+                        }, 700)
+
+                    }
+
+                }
+
+            }
+        }
+    })
+}

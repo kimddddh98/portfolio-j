@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/index.css">
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
-    <script src="js/index.js"></script>
+    <!-- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="js/index.js"></script> 
+  
 </head>
 
 <body>
@@ -21,25 +23,22 @@
             <li><a href="#">Contact</a></li>
         </ul>
     </header>
-    <div id="full">
-        <div id="full1">
-        </div>
-        <div id="full2">2</div>
-        <div id="full3">3</div>
-        <div id="full4">4</div>
-        <div id="full5">5</div>
-    </div>
-   
-    <div id="container">
-        <div class="circle"></div>
-        <div id="menu">
-            <div class="circleItem" style="transform: rotateY(0deg) translateZ(30vw) translateY(0vw);">About Me</div>
-            <div class="circleItem" style="transform: rotateY(70deg) translateZ(30vw)translateY(10vw)">Project</div>
-            <div class="circleItem" style="transform: rotateY(140deg) translateZ(30vw) translateY(20vw)">Skill</div>
-            <div class="circleItem" style="transform: rotateY(210deg) translateZ(30vw) translateY(30vw)">Contact</div>
-            <div class="circleItem" style="transform: rotateY(280deg) translateZ(30vw) translateY(40vw)"></div>
+    <div id="app">
+            <div id="full" v-show="sub" @wheel.prevent.stop="subWheel">
+                <div v-for="(item,index) in circleStyle" class="full">{{index}}</div>
+            </div>
+        
+       
+        <div id="container" v-show="main" @wheel="mainWheel">
+            <div class="circle"></div>
+            <div id="menu">
+
+                <div v-for="(item,index) in circleStyle" @click="subPage" class="circleItem" :style="item">{{index}}</div>
+              
+            </div>
         </div>
     </div>
+    
     
 </body>
 
