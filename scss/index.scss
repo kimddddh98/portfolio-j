@@ -102,3 +102,20 @@ header{
         }    
     }
 }
+.v-enter-active, .v-leave-active {
+
+    transition: 1s linear;
+    transform: scale(1);
+
+
+}
+
+/* 나타나기 전의 상태과 사라진 후의 상태는 투명도 0, 오른쪽으로 50 이동*/
+
+.v-enter, .v-leave-to {
+
+    opacity: 0;
+    // transform-origin: center left ;
+    transform: scale(0.8)
+
+}

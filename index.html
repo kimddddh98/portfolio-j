@@ -10,33 +10,48 @@
     <!-- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
     <script src="js/index.js"></script> 
-  
 </head>
 
 <body>
-    <header>
-        <ul>
-            <li><a href="#" id="home">Home</a></li>
-            <li><a href="#">About Me</a></li>
-            <li><a href="#">Project</a></li>
-            <li><a href="#">Skill</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </header>
+    
     <div id="app">
-            <div id="full" v-show="sub" @wheel.prevent.stop="subWheel">
-                <div v-for="(item,index) in circleStyle" class="full">{{index}}</div>
-            </div>
+        <header>
+            <ul>
+                <li><a href="#" @click="home" class="menuColor">Home</a></li>
+                <li><a href="#" class="menuColor">About Me</a></li>
+                <li><a href="#" class="menuColor">Project</a></li>
+                <li><a href="#" class="menuColor">Skill</a></li>
+                <li><a href="#" class="menuColor">Contact</a></li>
+                <li><a href="#" class="menuColor">more</a></li>
+            </ul>
+        </header>
+            <transition>
+                <div id="full" v-show="sub" @wheel.prevent="subWheel">
+                    <!-- <div v-for="(item,index) in circleStyle" :key="item"class="full">{{index}}</div> -->
+                    <div class="full">About Me</div>
+                    <div class="full">Project</div>
+                    <div class="full">skill</div>
+                    <div class="full">Contact</div>
+                    <div class="full">more</div>
+                </div>
+            </transition>
+            
         
-       
+       <transition>
         <div id="container" v-show="main" @wheel="mainWheel">
             <div class="circle"></div>
             <div id="menu">
-
                 <div v-for="(item,index) in circleStyle" @click="subPage" class="circleItem" :style="item">{{index}}</div>
+                <!-- <div  @click="subPage" class="circleItem" :style="circleStyle[0]">{{index}}</div>
+                <div  @click="subPage" class="circleItem" :style="circleStyle[1]">{{index}}</div>
+                <div  @click="subPage" class="circleItem" :style="circleStyle[2]">{{index}}</div>
+                <div  @click="subPage" class="circleItem" :style="circleStyle[3]">{{index}}</div>
+                <div  @click="subPage" class="circleItem" :style="circleStyle[4]">{{index}}</div> -->
+
               
             </div>
         </div>
+    </transition>
     </div>
     
     
