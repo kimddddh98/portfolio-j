@@ -9,23 +9,30 @@
     <link rel="stylesheet" href="css/index.css">
     <!-- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
     <script src="js/index.js"></script> 
+
 </head>
 
 <body>
     
     <div id="app">
-        <header>
-            <ul>
-                <li><a href="#" @click="home" class="menuColor">Home</a></li>
-                <li><a href="#" class="menuColor">About Me</a></li>
-                <li><a href="#" class="menuColor">Project</a></li>
-                <li><a href="#" class="menuColor">Skill</a></li>
-                <li><a href="#" class="menuColor">Contact</a></li>
-                <li><a href="#" class="menuColor">more</a></li>
-            </ul>
-        </header>
-            <transition>
+        <transition
+        name="custom-classes-transition"
+        enter-active-class="animated fadeInDown"
+        leave-active-class="animated fadeOutUp">
+            <header v-show="header">
+                <ul>
+                    <li><a href="#" @click="home" class="menuColor">Home</a></li>
+                    <li><a href="#" @click="section" class="menuColor">About Me</a></li>
+                    <li><a href="#" @click="section" class="menuColor">Project</a></li>
+                    <li><a href="#" @click="section" class="menuColor">Skill</a></li>
+                    <li><a href="#" @click="section" class="menuColor">Contact</a></li>
+                    <li><a href="#" @click="section" class="menuColor">more</a></li>
+                </ul>
+            </header>
+        </transition>
+        <transition>
                 <div id="full" v-show="sub" @wheel.prevent="subWheel">
                     <!-- <div v-for="(item,index) in circleStyle" :key="item"class="full">{{index}}</div> -->
                     <div class="full">About Me</div>
@@ -41,14 +48,13 @@
         <div id="container" v-show="main" @wheel="mainWheel">
             <div class="circle"></div>
             <div id="menu">
-                <div v-for="(item,index) in circleStyle" @click="subPage" class="circleItem" :style="item">{{index}}</div>
-                <!-- <div  @click="subPage" class="circleItem" :style="circleStyle[0]">{{index}}</div>
-                <div  @click="subPage" class="circleItem" :style="circleStyle[1]">{{index}}</div>
-                <div  @click="subPage" class="circleItem" :style="circleStyle[2]">{{index}}</div>
-                <div  @click="subPage" class="circleItem" :style="circleStyle[3]">{{index}}</div>
-                <div  @click="subPage" class="circleItem" :style="circleStyle[4]">{{index}}</div> -->
-
-              
+                    <!-- <div v-for="(item,index) in circleStyle" @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="item" :key="item" >{{index}} </div> -->
+                    <!-- <div v-for="(item,index) in circleStyle" @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="item" :key="item" >{{index}} </div> -->
+                <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="circleStyle[0]"></div>
+                <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="circleStyle[1]"></div>
+                <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="circleStyle[2]"></div>
+                <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="circleStyle[3]"></div>
+                <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="circleStyle[4]"></div>
             </div>
         </div>
     </transition>
