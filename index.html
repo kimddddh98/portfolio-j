@@ -33,10 +33,19 @@
             </header>
         </transition>
         <transition>
-                <div id="full" v-show="sub"  @wheel="subWheel" >
+                <div id="full" v-show="sub"  @wheel.prevent="subWheel" >
                     <!-- <div v-for="(item,index) in circleStyle" :key="item"class="full">{{index}}</div> -->
                     <div class="full">About Me</div>
-                    <div class="full">Project</div>
+                    <div class="full">
+                        <ul id="project">
+                            <li id="project1">
+                                <div><h2>Project-1</h2></div>
+                                <div></div>
+                            </li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                    </div>
                     <div class="full">skill</div>
                     <div class="full">Contact</div>
                     <div class="full">more</div>
@@ -52,17 +61,30 @@
             <div id="menu">
                     <!-- <div v-for="(item,index) in circleStyle" @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="item" :key="item" >{{index}} </div> -->
                     <!-- <div v-for="(item,index) in circleStyle" @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="item" :key="item" >{{index}} </div> -->
-                <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="circleStyle[0]"></div>
-                <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="circleStyle[1]"></div>
-                <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="circleStyle[2]"></div>
-                <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="circleStyle[3]"></div>
-                <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="circleStyle[4]"></div>
+                <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="circleStyle[0]">
+                    <menu-name menuname="About Me"></menu-name>
+                </div>
+                <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="circleStyle[1]">
+                    <menu-name menuname="Project"></menu-name>
+                </div>
+                <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="circleStyle[2]">
+                    <menu-name menuname="Skill"></menu-name>
+                </div>
+                <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="circleStyle[3]">
+                    <menu-name menuname="Contact"></menu-name>
+                </div>
+                <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="circleStyle[4]">
+                    <menu-name menuname="More"></menu-name>
+                </div>
             </div>
         </div>
     </transition>
+    <transition>
         <div id="loading" v-show="load">
-            aaa
+            
         </div>
+    </transition>
+        
     </div>
     
     

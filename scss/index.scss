@@ -3,7 +3,11 @@
 $bg:#50586C;
 // $bg:#DCE2F0;
 $color:#DCE2F0;
-
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 @keyframes spin{
        
@@ -56,25 +60,55 @@ header{
     height: 100%;
 }
 #loading{
+    position:absolute;
+    top: 0;
     background-color: #000000;
     width: 100vw;
     height: 100vh;
-    color:$color
+    color:$color;
+    &::after{
+        content: '';
+        text-align: center;
+        width: 100%;
+        height: 50px;
+        position: absolute;
+        top: 50%;
+        opacity: 1;
+        transform: translateY(-50%);
+        background-color: #fff;
+        animation: load 1s linear;
+        // animation: scale 3s 3s ;
+    }
 }
-#full{
-    // width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    position: relative;
-    transition:all 0.6s  ;
+@keyframes load{
+    0%{
+        width:0;
+        height: 2px;
+        opacity: 0;
 
-    &>div{
-        width: 100vw;
-        height: 200vh;
-        background-color: #DCE2F0;
-        transition:all 0.4s;
+    }
+    50%{
+        width:100%;
+        // display: n;
+        opacity: 1;
+        height: 2px;
+        
+    }
+    100%{
+        height: 50px;
+        // top:0
+    }
+}
+@keyframes scale{
+    0%{
+        height: 2px;
+
+    }
+    100%{
+        height: 100%;
+
+        // display: n;
+        opacity: 1;
     }
 }
 #container{
@@ -127,6 +161,12 @@ header{
             z-index: $i;
         }    
     }
+    .circleTop{
+        // background-color: blue;
+        position: absolute;
+        width: 100%;
+        top: -6vh;
+    }
     // @keyframes over{
     //     0%{
     //         transform: scale(100%);
@@ -152,4 +192,36 @@ header{
 .v-enter, .v-leave-to {
     opacity: 0;
     transform: scale(0.8)
+}
+#full{
+    // width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    transition:all 0.6s  ;
+
+    &>div{
+        width: 100vw;
+        height: 100vh;
+        background-color: #DCE2F0;
+        transition:all 0.4s;
+        overflow: hidden;
+
+        
+    }
+    #project{
+        width: 300%;
+        height: 100%;
+        // @include flexCenter();
+        display: flex;
+        // justify-content: space-between;
+        align-items: center;
+        li{
+            width: 33.3%;
+            height:80%;
+            background-color: aquamarine;
+        }
+    }
 }

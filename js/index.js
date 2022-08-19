@@ -1,11 +1,34 @@
 window.onload = () => {
+    let circleTop = {
+
+        template: '<p class="circleTop" :style="{color:homeColor,fontSize:homeFont}">{{menuname}}</p>',
+        props: {
+            menuname: String
+        },
+        data(){
+            return {
+                homeColor:'red',
+                homeFont:'2vw'
+            }
+        },
+        created() {
+            if (this.menuname == null) {
+                this.menuname = '2'
+            }
+        }
+    }
     new Vue({
         el: '#app',
+        mounted:function(){
+            setTimeout(()=>{
+                this.load=false
+            },2000)
+        },
         data: {
             main: true,
             sub: false,
             header: false,
-            load: false,
+            load: true,
             circleStyle: [
                 { transform: "rotateY(0deg) translateZ(30vw) translateY(0vw)" },
                 { transform: "rotateY(70deg) translateZ(30vw) translateY(10vw)" },
@@ -15,15 +38,19 @@ window.onload = () => {
             ],
             click: 0,
         },
+        components: {
+            'menu-name': circleTop
+        },
         methods: {
             subPage: function (e) {
+                // project1.style.width=100+'%'
+                // project1.style.height=80+'%'
+
                 this.header = true
                 let headerMenu = document.querySelectorAll('.menuColor')
                 this.main = false;
                 this.sub = true
-                // document.querySelector('html').style.overflowY='scroll'
-                document.querySelector('body').style.overflowY = 'scroll'
-                // let headerMenu=document.querySelectorAll('.menuColor')
+                // document.querySelector('body').style.overflowY = 'scroll'
                 for (let h = 0; h < headerMenu.length; h++) {
                     headerMenu[h].style.color = '#DCE2F0'
                 }
@@ -90,13 +117,14 @@ window.onload = () => {
                 if (!this.timer) {
                     this.timer = setTimeout(() => {
                         this.timer = null;
-                        // console.log(window.document.querySelector('body').scrollTop) 스크롤값 구하기
                         const fullbox = document.querySelectorAll('.full');
                         const full = document.getElementById('full');
+                        const bodyTop = window.document.querySelector('body').scrollTop
+                        console.log()
+                        // && bodyTop >= -fullbox[0].offsetTop - 100
                         let headerMenu = document.querySelectorAll('.menuColor')
                         if (e.wheelDelta <= 0) {
-                            // if () {
-                            if (this.click != fullbox.length - 1 && this.click < fullbox.length - 1 && window.document.querySelector('body').scrollTop >= 485) {
+                            if (this.click != fullbox.length - 1 && this.click < fullbox.length - 1 ) {
                                 for (let i = 0; i < fullbox.length; i++) {
                                     fullbox[i].style.width = 90 + 'vw'
                                     fullbox[i].style.height = 85 + 'vh'
@@ -113,7 +141,7 @@ window.onload = () => {
                                 setTimeout(() => {
                                     for (let i = 0; i < fullbox.length; i++) {
                                         fullbox[i].style.width = 100 + 'vw'
-                                        fullbox[i].style.height = 200 + 'vh'
+                                        fullbox[i].style.height = 100 + 'vh'
                                     }
                                     return this.click + 1 >= fullbox.length - 1 ? this.click = fullbox.length - 1 : this.click++
                                 }, 600)
@@ -122,7 +150,7 @@ window.onload = () => {
 
                         }
                         else {
-                            if (window.document.querySelector('body').scrollTop <= 0) {
+                            if (bodyTop <= 0) {
                                 if (this.click != 0 && this.click > 0) {
                                     for (let i = 0; i < fullbox.length; i++) {
                                         fullbox[i].style.width = 90 + 'vw'
@@ -140,7 +168,7 @@ window.onload = () => {
                                     setTimeout(() => {
                                         for (let i = 0; i < fullbox.length; i++) {
                                             fullbox[i].style.width = 100 + 'vw'
-                                            fullbox[i].style.height = 200 + 'vh'
+                                            fullbox[i].style.height = 100 + 'vh'
                                         }
                                         return this.click <= 0 ? this.click = 0 : this.click--
                                     }, 600)
@@ -164,7 +192,7 @@ window.onload = () => {
                 e.target.style.color = 'red'
                 this.main = true;
                 this.sub = false;
-                document.querySelector('body').style.overflowY = 'hidden'
+                // document.querySelector('body').style.overflowY = 'hidden'
 
             },
             section(e) {
@@ -185,10 +213,14 @@ window.onload = () => {
                 setTimeout(() => {
                     for (let i = 0; i < fullbox.length; i++) {
                         fullbox[i].style.width = 100 + 'vw'
-                        fullbox[i].style.height = 200 + 'vh'
+                        fullbox[i].style.height = 100 + 'vh'
                     }
 
                 }, 600)
+            },
+            set(){
+                
+                
             }
         }
 
