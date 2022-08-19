@@ -22,10 +22,11 @@ window.onload = () => {
         mounted:function(){
             setTimeout(()=>{
                 this.load=false
+                this.main=true
             },2000)
         },
         data: {
-            main: true,
+            main: false,
             sub: false,
             header: false,
             load: true,
@@ -45,11 +46,13 @@ window.onload = () => {
             subPage: function (e) {
                 // project1.style.width=100+'%'
                 // project1.style.height=80+'%'
-
-                this.header = true
                 let headerMenu = document.querySelectorAll('.menuColor')
                 this.main = false;
-                this.sub = true
+
+                setTimeout(()=>{
+                    this.header = true
+                    this.sub = true
+                },500)
                 // document.querySelector('body').style.overflowY = 'scroll'
                 for (let h = 0; h < headerMenu.length; h++) {
                     headerMenu[h].style.color = '#DCE2F0'

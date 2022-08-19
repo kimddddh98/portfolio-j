@@ -1,5 +1,8 @@
 @charset "utf-8";
 @import "reset";
+// @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
 $bg:#50586C;
 // $bg:#DCE2F0;
 $color:#DCE2F0;
@@ -8,7 +11,7 @@ $color:#DCE2F0;
     justify-content: center;
     align-items: center;
 }
-
+$mainFont:'Prata', serif;
 @keyframes spin{
        
     from{
@@ -118,18 +121,40 @@ header{
     align-items: center;
     perspective: 4000px;
     // display: none;
-        .circle{
+    .circle{
             width: 33vw;
             height: 33vw;
             position: absolute;
             z-index:- 1;
             // animation: spin 5s linear infinite;
-                border-radius: 70% 30% 67% 33% / 30% 50% 50% 70% ;
+                // border-radius: 70% 30% 67% 33% / 30% 50% 50% 70% ;
+                border-radius: 50%;
                 background-color:black;
-    
-            
+                opacity: 0.5;
     }
-    
+    #main-text{
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        color: $color;
+        z-index: -2;
+        display: flex;
+        font-family: $mainFont;
+        font-size: 65px;
+        &>div{
+            // background-color: skyblue;
+        // height: 33%;
+        width: 33%;
+            &:nth-of-type(2){
+                align-self: center;
+            }
+            &:nth-of-type(3){
+                align-self: flex-end;
+            }
+        }
+    }    
 }
 
 
@@ -191,7 +216,7 @@ header{
 
 .v-enter, .v-leave-to {
     opacity: 0;
-    transform: scale(0.8)
+    transform: scale(0.5)
 }
 #full{
     // width: 100%;
