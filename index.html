@@ -33,7 +33,7 @@
             </header>
         </transition>
         <transition>
-                <div id="full" v-show="sub" @wheel.prevent="subWheel">
+                <div id="full" v-show="sub"  @wheel="subWheel" >
                     <!-- <div v-for="(item,index) in circleStyle" :key="item"class="full">{{index}}</div> -->
                     <div class="full">About Me</div>
                     <div class="full">Project</div>
@@ -45,8 +45,10 @@
             
         
        <transition>
+
         <div id="container" v-show="main" @wheel="mainWheel">
-            <div class="circle"></div>
+        <div class="circle"></div>
+
             <div id="menu">
                     <!-- <div v-for="(item,index) in circleStyle" @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="item" :key="item" >{{index}} </div> -->
                     <!-- <div v-for="(item,index) in circleStyle" @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="item" :key="item" >{{index}} </div> -->
@@ -58,6 +60,9 @@
             </div>
         </div>
     </transition>
+        <div id="loading" v-show="load">
+            aaa
+        </div>
     </div>
     
     
