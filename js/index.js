@@ -44,8 +44,6 @@ window.onload = () => {
         },
         methods: {
             subPage: function (e) {
-                // project1.style.width=100+'%'
-                // project1.style.height=80+'%'
                 let headerMenu = document.querySelectorAll('.menuColor')
                 this.main = false;
 
@@ -53,12 +51,9 @@ window.onload = () => {
                     this.header = true
                     this.sub = true
                 },500)
-                // document.querySelector('body').style.overflowY = 'scroll'
                 for (let h = 0; h < headerMenu.length; h++) {
                     headerMenu[h].style.color = '#DCE2F0'
                 }
-                // e.target.style.width=100+"vw"
-                // e.target.style.height=100+"vw"
                 for (let i = 0; i < document.querySelectorAll('.circleItem').length; i++) {
                     if (e.target == document.querySelectorAll('.circleItem')[i]) {
                         full.style.width = 100 * this.circleStyle.length + 'vw'
@@ -70,6 +65,9 @@ window.onload = () => {
                         return this.click = i
                     }
                 }
+            },
+            down(e){
+                console.log(e)
             },
             circleOver(e) {
                 // let found = /-\d+|\d+/g;
@@ -188,15 +186,13 @@ window.onload = () => {
             },
             home(e) {
                 this.header = false
+                this.main = true;
+                this.sub = false;
                 let headerMenu = document.querySelectorAll('.menuColor')
                 for (let h = 0; h < headerMenu.length; h++) {
                     headerMenu[h].style.color = '#DCE2F0'
                 }
                 e.target.style.color = 'red'
-                this.main = true;
-                this.sub = false;
-                // document.querySelector('body').style.overflowY = 'hidden'
-
             },
             section(e) {
                 let full = document.getElementById('full')
@@ -218,13 +214,9 @@ window.onload = () => {
                         fullbox[i].style.width = 100 + 'vw'
                         fullbox[i].style.height = 100 + 'vh'
                     }
-
                 }, 600)
-            },
-            set(){
-                
-                
             }
+          
         }
 
     })

@@ -65,7 +65,7 @@
             <div id="menu">
                     <!-- <div v-for="(item,index) in circleStyle" @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="item" :key="item" >{{index}} </div> -->
                     <!-- <div v-for="(item,index) in circleStyle" @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="item" :key="item" >{{index}} </div> -->
-                <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="circleStyle[0]">
+                <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" @mousedown="down" class="circleItem" :style="circleStyle[0]">
                     <menu-name menuname="About Me"></menu-name>
                 </div>
                 <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="circleStyle[1]">
