@@ -10,6 +10,7 @@
     <!-- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+    <!-- <script src="https://threejs.org/build/three.min.js"></script> -->
     <script src="js/index.js"></script> 
 
 </head>
@@ -24,27 +25,27 @@
             <header v-show="header">
                 <ul>
                     <li><a href="#" @click="home" class="menuColor">Home</a></li>
-                    <li><a href="#" @click="section" class="menuColor">About Me</a></li>
                     <li><a href="#" @click="section" class="menuColor">Project</a></li>
+                    <li><a href="#" @click="section" class="menuColor">About Me</a></li>
                     <li><a href="#" @click="section" class="menuColor">Skill</a></li>
                     <li><a href="#" @click="section" class="menuColor">Contact</a></li>
-                    <li><a href="#" @click="section" class="menuColor">more</a></li>
+                    <li><a href="#" @click="section" class="menuColor">More</a></li>
                 </ul>
             </header>
         </transition>
         <transition>
                 <div id="full" v-show="sub"  @wheel.prevent="subWheel" >
                     <!-- <div v-for="(item,index) in circleStyle" :key="item"class="full">{{index}}</div> -->
-                    <div class="full">About Me</div>
+                    <div class="full"><ul id="project">
+                        <li id="project1">
+                            <div><h2>Project-1</h2></div>
+                            <div></div>
+                        </li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul></div>
                     <div class="full">
-                        <ul id="project">
-                            <li id="project1">
-                                <div><h2>Project-1</h2></div>
-                                <div></div>
-                            </li>
-                            <li>2</li>
-                            <li>3</li>
-                        </ul>
+                        
                     </div>
                     <div class="full">skill</div>
                     <div class="full">Contact</div>
@@ -56,20 +57,30 @@
        <transition>
 
         <div id="container" v-show="main" @wheel="mainWheel">
-        <div class="circle"></div>
+        <div class="circle">
+            <div class="cube">
+                <div class="one"><p>HTML</p></div>
+                <div class="two"><p>CSS</p></div>
+                <div class="three"><p>JavaScript</p></div>
+                <div class="four"><p>jQuery</p></div>
+                <div class="five"><p>Vue.js</p></div>
+                <div class="six"><p>Ajax</p></div>
+            </div>
+            
+        </div>
         <div id="main-text">
             <div>Kim<br>Dong-Hyeon</div>
-            <div style="text-align: center;">Web<br>Front-end</div>
+            <div style="text-align: center;">Front-end</div>
             <div style="text-align: right;">Developer</div>
         </div>
             <div id="menu">
                     <!-- <div v-for="(item,index) in circleStyle" @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="item" :key="item" >{{index}} </div> -->
                     <!-- <div v-for="(item,index) in circleStyle" @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="item" :key="item" >{{index}} </div> -->
                 <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" @mousedown="down" class="circleItem" :style="circleStyle[0]">
-                    <menu-name menuname="About Me"></menu-name>
+                    <menu-name menuname="Project"></menu-name>
                 </div>
                 <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="circleStyle[1]">
-                    <menu-name menuname="Project"></menu-name>
+                    <menu-name menuname="About Me"></menu-name>
                 </div>
                 <div  @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="circleStyle[2]">
                     <menu-name menuname="Skill"></menu-name>

@@ -1,4 +1,9 @@
 window.onload = () => {
+//     var scene = new THREE.Scene();
+//     var camera = new THREE.PerspectiveCamera( 45, window.innerWidth/window.innerHeight, 0.1, 1000 );
+//     var renderer = new THREE.WebGLRenderer( { antialias: true, preserveDrawingBuffer: true } );
+// renderer.setSize( window.innerWidth, window.innerHeight );
+// document.body.appendChild( renderer.domElement );
     let circleTop = {
 
         template: '<p class="circleTop" :style="{color:homeColor,fontSize:homeFont}">{{menuname}}</p>',
@@ -7,7 +12,7 @@ window.onload = () => {
         },
         data(){
             return {
-                homeColor:'red',
+                homeColor:'#DCE2F0',
                 homeFont:'2vw'
             }
         },

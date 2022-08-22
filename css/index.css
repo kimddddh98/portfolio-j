@@ -17,19 +17,19 @@ ul, li, ol {
 
 @-webkit-keyframes spin {
   from {
-    transform: rotatex(0deg);
+    transform: rotateY(0) rotateX(0);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotateY(-360deg) rotateX(360deg);
   }
 }
 
 @keyframes spin {
   from {
-    transform: rotatex(0deg);
+    transform: rotateY(0) rotateX(0);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotateY(-360deg) rotateX(360deg);
   }
 }
 html, body {
@@ -78,18 +78,19 @@ header ul a {
   background-color: #000000;
   width: 100vw;
   height: 100vh;
-  color: #DCE2F0;
 }
 #loading::after {
   content: "";
   text-align: center;
   width: 100%;
-  height: 50px;
+  height: 20px;
   position: absolute;
   top: 50%;
   opacity: 1;
   transform: translateY(-50%);
   background-color: #fff;
+  color: black;
+  overflow: hidden;
   -webkit-animation: load 1s linear;
           animation: load 1s linear;
 }
@@ -106,7 +107,7 @@ header ul a {
     height: 2px;
   }
   100% {
-    height: 50px;
+    height: 20px;
   }
 }
 
@@ -122,7 +123,7 @@ header ul a {
     height: 2px;
   }
   100% {
-    height: 50px;
+    height: 20px;
   }
 }
 @-webkit-keyframes scale {
@@ -151,13 +152,53 @@ header ul a {
   perspective: 4000px;
 }
 #container .circle {
-  width: 33vw;
-  height: 33vw;
+  perspective: 800;
   position: absolute;
-  z-index: -1;
-  border-radius: 50%;
-  background-color: black;
-  opacity: 0.5;
+  z-index: -2;
+}
+#container .circle .cube {
+  width: 16.5vw;
+  height: 16.5vw;
+  position: relative;
+  top: 0;
+  -webkit-animation: spin 5s infinite linear;
+          animation: spin 5s infinite linear;
+  transform-style: preserve-3d;
+}
+#container .circle .cube > div {
+  width: 16.5vw;
+  height: 16.5vw;
+  position: absolute;
+  border: 1px solid #333;
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vw;
+}
+#container .circle .cube .one {
+  transform: rotateX(90deg) translateZ(8.25vw);
+  background-color: #E3493B;
+}
+#container .circle .cube .two {
+  transform: translateZ(8.25vw);
+  background-color: #23B5AF;
+}
+#container .circle .cube .three {
+  transform: rotateY(90deg) translateZ(8.25vw);
+  background-color: #E8487F;
+}
+#container .circle .cube .four {
+  transform: rotateY(180deg) translateZ(8.25vw);
+  background-color: #28B78D;
+}
+#container .circle .cube .five {
+  transform: rotateY(-90deg) translateZ(8.25vw);
+  background-color: #FF5B00;
+}
+#container .circle .cube .six {
+  transform: rotateX(-90deg) translateZ(8.25vw);
+  background-color: #FEEB51;
 }
 #container #main-text {
   position: absolute;
@@ -166,7 +207,7 @@ header ul a {
   top: 0;
   left: 0;
   color: #DCE2F0;
-  z-index: -2;
+  z-index: -1;
   display: flex;
   font-family: "Prata", serif;
   font-size: 65px;
@@ -197,7 +238,7 @@ header ul a {
   width: 30vw;
   height: 30vw;
   background-color: #DCE2F0;
-  opacity: 0.8;
+  opacity: 0.9;
   transition: 1s;
 }
 .circleItem img {
@@ -228,7 +269,7 @@ header ul a {
 .circleItem .circleTop {
   position: absolute;
   width: 100%;
-  top: -6vh;
+  top: -3vw;
 }
 
 .v-enter-active, .v-leave-active {
@@ -265,5 +306,5 @@ header ul a {
 #full #project li {
   width: 33.3%;
   height: 80%;
-  background-color: black;
+  background-color: #50586C;
 }
