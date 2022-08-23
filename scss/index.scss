@@ -3,68 +3,85 @@
 // @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 // @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
-$bg:#50586C;
+$bg: #8AAAE5;
 // $bg:#DCE2F0;
-$color:#DCE2F0;
+$color: #fefefe;
+
 @mixin flexCenter {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-$mainFont:'Prata', serif;
-@keyframes spin{
-       
-    from { transform: rotateY(0) rotateX(0); }
-    to   { transform: rotateY(-360deg) rotateX(360deg); }
 
-};
-html,body{
+$mainFont: 'Prata', serif;
+
+@keyframes spin {
+
+    from {
+        transform: rotateY(0) rotateX(0);
+    }
+
+    to {
+        transform: rotateY(-360deg) rotateX(360deg);
+    }
+
+}
+html,
+body {
     width: 100%;
     height: 100%;
     overflow: hidden;
     // overflow-x: hidden;
-    background-color:$bg;
+    background: rgb(237,242,246);
+background: radial-gradient(circle, rgba(237,242,246,1) 8%, rgba(138,170,229,1) 78%);
 }
+
 body::-webkit-scrollbar {
-    width: 8px;  /* 스크롤바의 너비 */
+    width: 8px;
+    /* 스크롤바의 너비 */
 }
 
 body::-webkit-scrollbar-thumb {
-    height: 30%; /* 스크롤바의 길이 */
-    background: $bg; /* 스크롤바의 색상 */
-    
+    height: 30%;
+    /* 스크롤바의 길이 */
+    background: $bg;
+    /* 스크롤바의 색상 */
     border-radius: 10px;
 }
 
 body::-webkit-scrollbar-track {
-    background:#c7d3ee  /*스크롤바 뒷 배경 색상*/
+    background: #c7d3ee
+        /*스크롤바 뒷 배경 색상*/
 }
-header{
+
+header {
     width: 100vw;
-    background-color: rgba($color: #000000, $alpha: 0.5);
+    background-color: rgba($color: #000000, $alpha: 0.6);
     position: fixed;
     z-index: 9;
-    // height: 100px;
-    ul{
+    ul {
         display: flex;
-        justify-content:space-around ;
+        justify-content: space-around;
         padding: 1vw;
-        a{
+
+        a {
             color: $color
         }
     }
 }
-#app{
+
+#app {
     height: 100%;
 }
-#loading{
-    position:absolute;
+
+#loading {
+    position: absolute;
     top: 0;
     background-color: #000000;
     width: 100vw;
     height: 100vh;
     // color:$color;
-    &::after{
+    &::after {
         content: '';
         text-align: center;
         width: 100%;
@@ -82,238 +99,214 @@ header{
         // animation: scale 3s 3s ;
     }
 }
-@keyframes load{
-    0%{
-        width:0;
+
+@keyframes load {
+    0% {
+        width: 0;
         height: 2px;
         opacity: 0;
 
     }
-    50%{
-        width:100%;
+
+    50% {
+        width: 100%;
         // display: n;
         opacity: 1;
         height: 2px;
 
-        
+
     }
-    100%{
+
+    100% {
         height: 20px;
         // top:0
     }
 }
-@keyframes scale{
-    0%{
+
+@keyframes scale {
+    0% {
         height: 2px;
 
     }
-    100%{
+
+    100% {
         height: 100%;
 
         // display: n;
         opacity: 1;
     }
 }
-#container{
 
+#container {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     perspective: 4000px;
-    
-    // display: none;
-    .circle{
-        // width: 100%;
-        perspective: 800;
-        position: absolute;
-
-        z-index: -2;
-        .cube{
-            width: 16.5vw;
-            height: 16.5vw;
-            position: relative;
-            top: 0;
-            animation: spin 5s infinite linear;
-            transform-style: preserve-3d;
-
-            &>div{
-                width: 16.5vw;
-                height: 16.5vw;
-                position: absolute;
-                border: 1px solid #333;
-                opacity: .8;
-
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 2vw;
-            }
-
-            .one { 
-                transform: rotateX(90deg) translateZ(8.25vw); 
-                background-color: #E3493B;
-              }
-              
-              .two { 
-                transform: translateZ(8.25vw); 
-                background-color: #23B5AF;
-              }
-              
-              .three { 
-                transform: rotateY(90deg) translateZ(8.25vw); 
-                background-color: #E8487F;
-              }
-              
-              .four { 
-                transform: rotateY(180deg) translateZ(8.25vw); 
-                background-color: #28B78D;
-              }
-              
-              .five { 
-                transform: rotateY(-90deg) translateZ(8.25vw); 
-                background-color: #FF5B00;
-              }
-              
-              .six { 
-                transform: rotateX(-90deg) translateZ(8.25vw); 
-                background-color: #FEEB51;
-              }
-        }
-           
-            
-            
-    }
-    #main-text{
+    #main-text {
         position: absolute;
         width: 100vw;
         height: 100vh;
         top: 0;
         left: 0;
         color: $color;
-        z-index: -1;
         display: flex;
+        justify-content: space-between;
         font-family: $mainFont;
         font-size: 65px;
-        &>div{
-            // background-color: skyblue;
-        // height: 33%;
-        width: 33%;
-            &:nth-of-type(2){
-                align-self: center;
-            }
-            &:nth-of-type(3){
-                align-self: flex-end;
-            }
+    
+        &>div:nth-of-type(2) {
+            align-self: flex-end;
+            text-align: center;
         }
-    }    
+    }
 }
 
-
-#menu{
+#menu {
     width: 33vw;
     height: 33vw;
     position: relative;
     transform-style: preserve-3d;
-    z-index:- 1;
-}
-
-.circleItem{
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 30vw;
-    height: 30vw;
-    background-color:#DCE2F0;
-    opacity: 0.9;
-    transition: 1s;
-    // background-image: url(../img/music.jpg);
-    // background-repeat: no-repeat;
-    // background-size: contain;
-    img{
+    #circle {
         width: 100%;
         height: 100%;
+        // perspective: 800;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        .cube {
+            width: 16.5vw;
+            height: 16.5vw;
+            position: relative;
+            top: 0;
+            animation: spin 5s infinite linear;
+            transform-style: preserve-3d;
+            
+    
+            &>div {
+                width: 16.5vw;
+                height: 16.5vw;
+                position: absolute;
+                border: 2px solid $bg;
+                opacity: .8;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 2vw;
+                color: $bg;
+                background-color: $color;
+            }
+    
+            .one {
+                transform: rotateX(90deg) translateZ(8.25vw);
+            }
+    
+            .two {
+                transform: translateZ(8.25vw);
+            }
+    
+            .three {
+                transform: rotateY(90deg) translateZ(8.25vw);
+            }
+    
+            .four {
+                transform: rotateY(180deg) translateZ(8.25vw);
+            }
+    
+            .five {
+                transform: rotateY(-90deg) translateZ(8.25vw);
+            }
+    
+            .six {
+                transform: rotateX(-90deg) translateZ(8.25vw);
+            }
+        }
+    
+    }
+    .circleItem {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30vw;
+        height: 30vw;
+        // background-color: $bg;
+        // border: 2px solid $color;
+        opacity: 0.9;
+        transition: 1s;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+     
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    
+        // @for $i from 1 through 7{
+        //     &:nth-child(#{$i}){
+        //         z-index: $i;
+        //     }    
+        // }
+        
+    
+        // &:nth-child(3){
+        //     background-image: url(../img/ajax.JPG);
+        // }
+        // &:nth-child(4){
+        //     background-image: url(../img/everland.JPG);
+        // }
+        // &:nth-child(5){
+        //     background-image: url(../img/ez.JPG);
+        // }           
+        .circleTop {
+            position: absolute;
+            width: 100%;
+            top: -3vw;
+        }
     }
     
-    @for $i from 1 through 7{
-        &:nth-child(#{$i}){
-            z-index: $i;
-        }    
-    }
-    // &:nth-child(2){
-    // background-image: url(../img/dog.png);
-    // }    
-    // &:nth-child(3){
-    //     background-image: url(../img/ajax.JPG);
-    // }
-    // &:nth-child(4){
-    //     background-image: url(../img/everland.JPG);
-    // }
-    // &:nth-child(5){
-    //     background-image: url(../img/ez.JPG);
-    // }           
-    .circleTop{
-        // background-color: blue;
-        position: absolute;
-        width: 100%;
-        top: -3vw;
-        // transform: translateY(2vw);
-    }
-    // @keyframes over{
-    //     0%{
-    //         transform: scale(100%);
-    //     }
-    //     50%{
-    //         transform: scale(110%);
-    //     }
-    //     100%{
-    //         transform: scale(100%);
-    //     }
-    // }
-    // &:hover{
-    //     animation: over 2s backwards;
-        
-    // }
 }
-.v-enter-active, .v-leave-active {
+.v-enter-active,
+.v-leave-active {
     transition: 1s linear;
     transform: scale(1);
 }
-
-
-.v-enter, .v-leave-to {
+.v-enter,
+.v-leave-to {
     opacity: 0;
     transform: scale(0.5)
 }
-#full{
-    // width: 100%;
+
+#full {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
     position: relative;
-    transition:all 0.6s  ;
+    transition: all 0.6s;
 
-    &>div{
+    &>div {
         width: 100vw;
         height: 100vh;
-        background-color: #DCE2F0;
-        transition:all 0.4s;
+        background-color: $color;
+        transition: all 0.4s;
         overflow: hidden;
-
-        
     }
-    #project{
+
+    #project {
         width: 300%;
         height: 100%;
         // @include flexCenter();
         display: flex;
         // justify-content: space-between;
         align-items: center;
-        li{
+
+        li {
             width: 33.3%;
-            height:80%;
+            height: 80%;
             background-color: $bg;
         }
     }

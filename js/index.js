@@ -12,7 +12,7 @@ window.onload = () => {
         },
         data(){
             return {
-                homeColor:'#DCE2F0',
+                homeColor:'#fefefe',
                 homeFont:'2vw'
             }
         },
@@ -36,13 +36,14 @@ window.onload = () => {
             header: false,
             load: true,
             circleStyle: [
-                { transform: "rotateY(0deg) translateZ(30vw) translateY(0vw)" },
-                { transform: "rotateY(70deg) translateZ(30vw) translateY(10vw)" },
-                { transform: "rotateY(140deg) translateZ(30vw) translateY(20vw)" },
-                { transform: "rotateY(210deg) translateZ(30vw) translateY(30vw)" },
-                { transform: "rotateY(280deg) translateZ(30vw) translateY(40vw)" },
+                { transform: "rotateY(0deg) translateZ(30vw) translateY(0vw)", backgroundImage : "url('../img/music.png')" },
+                { transform: "rotateY(70deg) translateZ(30vw) translateY(10vw)", backgroundImage : "url('../img/dog.png')" },
+                { transform: "rotateY(140deg) translateZ(30vw) translateY(20vw)", backgroundImage : "url('../img/ajax.png')"},
+                { transform: "rotateY(210deg) translateZ(30vw) translateY(30vw)", backgroundImage : "url('../img/everland.png')" },
+                { transform: "rotateY(280deg) translateZ(30vw) translateY(40vw)", backgroundImage : "url('../img/ez.png')" },
             ],
             click: 0,
+            transform:false
         },
         components: {
             'menu-name': circleTop
@@ -64,8 +65,9 @@ window.onload = () => {
                         full.style.width = 100 * this.circleStyle.length + 'vw'
                         setTimeout(() => {
                             const offset = document.querySelectorAll('.full')[1].offsetWidth;
-                            full.style.left = -offset * i + 'px'
-                            headerMenu[i + 1].style.color = 'red'
+                            full.style.left = -100*i+'vw'
+                            // full.style.left = -offset * i + 'px'
+                            headerMenu[i + 1].style.color = '#8AAAE5'
                         }, 0)
                         return this.click = i
                     }
@@ -96,9 +98,9 @@ window.onload = () => {
             },
             mainWheel: function (e) {
                 let found = /-\d+|\d+/g;
-                let circleItem = document.getElementById('menu').children;
+                let circleItem = document.querySelectorAll('.circleItem');
                 let circleArr = [];
-
+                this.transform=true
                 if (e.wheelDelta <= 0) {
                     if (circleItem[0].style.transform != 'rotateY(-280deg) translateZ(30vw) translateY(-40vw)') {
                         for (let i = 0; i < circleItem.length; i++) {
@@ -140,7 +142,7 @@ window.onload = () => {
                                     for (let h = 0; h < headerMenu.length; h++) {
                                         headerMenu[h].style.color = '#DCE2F0'
                                     }
-                                    headerMenu[this.click + 2].style.color = 'red'
+                                    headerMenu[this.click + 2].style.color = '#8AAAE5'
 
                                 }
                                 full.style.left = -100 * (this.click + 1) + 'vw'
@@ -167,7 +169,7 @@ window.onload = () => {
                                     for (let h = 0; h < headerMenu.length; h++) {
                                         headerMenu[h].style.color = '#DCE2F0'
                                     }
-                                    headerMenu[this.click].style.color = 'red'
+                                    headerMenu[this.click].style.color = '#8AAAE5'
 
                                     // }
                                     full.style.left = -100 * (this.click - 1) + 'vw'
@@ -197,7 +199,7 @@ window.onload = () => {
                 for (let h = 0; h < headerMenu.length; h++) {
                     headerMenu[h].style.color = '#DCE2F0'
                 }
-                e.target.style.color = 'red'
+                e.target.style.color = '#8AAAE5'
             },
             section(e) {
                 let full = document.getElementById('full')
@@ -205,8 +207,8 @@ window.onload = () => {
                 let headerMenu = document.querySelectorAll('.menuColor')
                 for (let h = 0; h < headerMenu.length; h++) {
                     headerMenu[h].style.color = '#DCE2F0'
-                    e.target.style.color = 'red'
-                    if (headerMenu[h].style.color == 'red')
+                    e.target.style.color = '#8AAAE5'
+                    if (headerMenu[h].style.color == 'rgb(138, 170, 229)')
                         this.click = h - 1
                 }
                 for (let i = 0; i < fullbox.length; i++) {
