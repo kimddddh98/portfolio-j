@@ -112,15 +112,13 @@
                     </div>
                     <!-- <div v-for="(item,index) in circleStyle" @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="item" :key="item" >{{index}} </div> -->
                     <!-- <div v-for="(item,index) in circleStyle" @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="item" :key="item" >{{index}} </div> -->
-                    <transition name="custom-classess-transition" enter-active-class="animated fadeIn"
-                        leave-active-class="animated fadeOut">
+                    <transition name="fade">
                         <div @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem"
                             :style="circleStyle[0]" v-if="transform">
                             <menu-name menuname="Project"></menu-name>
                         </div>
                     </transition>
-                    <transition name="custom-classess-transition" enter-active-class="animated fadeIn"
-                        leave-active-class="animated fadeOut">
+                    <transition name="fade">
                         <div @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem"
                             :style="circleStyle[1]" v-if="transform">
                             <menu-name menuname="About Me"></menu-name>
@@ -128,23 +126,20 @@
                         </div>
                     </transition>
 
-                    <transition name="custom-classess-transition" enter-active-class="animated fadeIn"
-                        leave-active-class="animated fadeOut">
+                    <transition name="fade">
                         <div @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem"
                             :style="circleStyle[2]" v-if="transform">
                             <menu-name menuname="Skill"></menu-name>
                         </div>
                     </transition>
-                    <transition name="custom-classess-transition" enter-active-class="animated fadeIn"
-                        leave-active-class="animated fadeOut">
+                    <transition name="fade">
                         <div @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem"
                             :style="circleStyle[3]" v-if="transform">
                             <menu-name menuname="Contact"></menu-name>
                         </div>
                     </transition>
 
-                    <transition name="custom-classess-transition" enter-active-class="animated fadeIn"
-                        leave-active-class="animated fadeOut">
+                    <transition name="fade">
                         <div @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem"
                             :style="circleStyle[4]" v-if="transform">
                             <menu-name menuname="More"></menu-name>

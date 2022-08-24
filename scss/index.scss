@@ -308,7 +308,31 @@ header {
     opacity: 0;
     transform: scale(0.5)
 }
-
+.fade-enter-active,
+.fade-leave-active {
+    animation: mainFadeIn 1s;
+}
+.fade-enter,
+.fade-leave-to {
+    // animation: mainFadeOut 1s;
+    opacity: 0;
+}
+@keyframes mainFadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0.9;
+    }
+}
+@keyframes mainFadeOut{
+    0%{
+        opacity: 0.9;
+    }
+    100%{
+        opacity: 0;
+    }
+}
 #full {
     height: 100vh;
     display: flex;
@@ -331,13 +355,14 @@ header {
         display: flex;
         align-items: center;
         cursor: grabbing;
-        // transition: 0.1s;
-        // position: absolute;
-        // margin-left: -3840px;
         li {
             width: 100vw;
             height: 80%;
             background-color:lightskyblue;
+            &:nth-of-type(even){
+                background-color: aquamarine;
+            }
         }
+        
     }
 }
