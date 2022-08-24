@@ -11,18 +11,18 @@
 $bg: #8AAAE5;
 // $bg:#DCE2F0;
 $color: #fefefe;
-
+// $mainFont: 'Prata', serif;
+// $mainFont:  'Cormorant SC', serif;
+// $mainFont: 'Fugaz One', cursive;
+// $mainFont: 'Finger Paint', cursive;
+$mainFont: 'Nosifer', cursive;
 @mixin flexCenter {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-// $mainFont: 'Prata', serif;
-// $mainFont:  'Cormorant SC', serif;
-// $mainFont: 'Fugaz One', cursive;
-// $mainFont: 'Finger Paint', cursive;
-$mainFont: 'Nosifer', cursive;
+
 
 @keyframes spin {
 
@@ -72,7 +72,6 @@ header {
         display: flex;
         justify-content: space-around;
         padding: 1vw;
-
         a {
             color: $color
         }
@@ -105,46 +104,26 @@ header {
         color: black;
         overflow: hidden;
         animation: load 1s linear;
-        // animation: scale 3s 3s ;
     }
 }
-
 @keyframes load {
     0% {
         width: 0;
         height: 2px;
         opacity: 0;
-
     }
-
     50% {
         width: 100%;
         // display: n;
         opacity: 1;
         height: 2px;
-
-
     }
-
     100% {
         height: 20px;
         // top:0
     }
 }
 
-@keyframes scale {
-    0% {
-        height: 2px;
-
-    }
-
-    100% {
-        height: 100%;
-
-        // display: n;
-        opacity: 1;
-    }
-}
 
 #container {
     height: 100vh;
@@ -288,7 +267,6 @@ header {
 
             }
         }
-    
     }
     .circleItem {
         cursor: pointer;
@@ -297,8 +275,6 @@ header {
         left: 0;
         width: 30vw;
         height: 30vw;
-        // background-color: $bg;
-        // border: 2px solid $color;
         opacity: 0.9;
         transition: 1s;
         background-position: center;
@@ -309,23 +285,11 @@ header {
             width: 100%;
             height: 100%;
         }
-    
         // @for $i from 1 through 7{
         //     &:nth-child(#{$i}){
         //         z-index: $i;
         //     }    
         // }
-        
-    
-        // &:nth-child(3){
-        //     background-image: url(../img/ajax.JPG);
-        // }
-        // &:nth-child(4){
-        //     background-image: url(../img/everland.JPG);
-        // }
-        // &:nth-child(5){
-        //     background-image: url(../img/ez.JPG);
-        // }           
         .circleTop {
             position: absolute;
             width: 100%;
@@ -362,17 +326,18 @@ header {
     }
 
     #project {
-        width: 300vw; 
+        width: 500vw; 
         height: 100%;
         display: flex;
         align-items: center;
+        cursor: grabbing;
         // transition: 0.1s;
         // position: absolute;
         // margin-left: -3840px;
         li {
             width: 100vw;
             height: 80%;
-            background-color: $bg;
+            background-color:lightskyblue;
         }
     }
 }

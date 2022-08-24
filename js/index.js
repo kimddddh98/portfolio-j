@@ -60,20 +60,23 @@ window.onload = () => {
                 let innerUl=document.querySelector('#project');
                 this.press=true
                 this.startx=e.offsetX - innerUl.offsetLeft
-                innerUl.style.cursor='grabbing'
+                innerUl.style.transition='none'
+
             },
             mUp(){
                 this.press=false
                 console.log(this.up)
                 let innerUl=document.querySelector('#project');
-                
+                innerUl.style.transition='0.5s'
                 if(this.up<0){
                     this.projectI++
                     innerUl.style.marginLeft=-100*this.projectI+'vw'
+                    this.up=null
                 }
                 else if(this.up>0){
                     this.projectI--
                     innerUl.style.marginLeft=-100*this.projectI+'vw'
+                    this.up=null
                 }
             },
             mMove(e){
@@ -97,6 +100,7 @@ window.onload = () => {
             subPage: function (e) {
                 let headerMenu = document.querySelectorAll('.menuColor')
                 this.main = false;
+                this.transform=false,
 
                 setTimeout(()=>{
                     this.header = true
@@ -155,7 +159,6 @@ window.onload = () => {
                     }
                 }
                 else {
-
                     if (circleItem[0].style.transform != 'rotateY(0deg) translateZ(30vw) translateY(0vw)') {
                         for (let i = 0; i < circleItem.length; i++) {
                             circleArr.push(circleItem[i].style.transform.match(found))
@@ -238,6 +241,11 @@ window.onload = () => {
             home(e) {
                 this.header = false
                 this.main = true;
+                setTimeout(()=>{
+                    this.transform=true
+
+                },3000)
+
                 this.sub = false;
                 let headerMenu = document.querySelectorAll('.menuColor')
                 for (let h = 0; h < headerMenu.length; h++) {
