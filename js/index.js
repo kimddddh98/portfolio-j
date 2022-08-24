@@ -29,6 +29,9 @@ window.onload = () => {
                 this.load=false
                 this.main=true
             },2000)
+            setTimeout(()=>{
+                this.transform=true
+            },5000)
         },
         data: {
             main: false,
@@ -43,12 +46,54 @@ window.onload = () => {
                 { transform: "rotateY(280deg) translateZ(30vw) translateY(40vw)", backgroundImage : "url('../img/ez.png')" },
             ],
             click: 0,
-            transform:false
+            transform:false,
+            press:false,
+            startx:null,
+            up:null,
+            projectI:0
         },
         components: {
             'menu-name': circleTop
         },
         methods: {
+            mDown(e){
+                let innerUl=document.querySelector('#project');
+                this.press=true
+                this.startx=e.offsetX - innerUl.offsetLeft
+                innerUl.style.cursor='grabbing'
+            },
+            mUp(){
+                this.press=false
+                console.log(this.up)
+                let innerUl=document.querySelector('#project');
+                
+                if(this.up<0){
+                    this.projectI++
+                    innerUl.style.marginLeft=-100*this.projectI+'vw'
+                }
+                else if(this.up>0){
+                    this.projectI--
+                    innerUl.style.marginLeft=-100*this.projectI+'vw'
+                }
+            },
+            mMove(e){
+                let innerUl=document.querySelector('#project');
+                let ch=innerUl.clientWidth-project1.clientWidth
+                if (!this.press) return
+                e.preventDefault()
+                innerUl.style.marginLeft=e.offsetX-this.startx+'px'
+                // console.log()
+                if(parseInt(innerUl.style.marginLeft)>0){
+                    innerUl.style.marginLeft='0px'
+                }
+                else if(parseInt(innerUl.style.marginLeft)<-ch){
+                    innerUl.style.marginLeft=-ch+'px'
+                }
+                if(parseInt(innerUl.style.marginLeft)<=0 || parseInt(innerUl.style.marginLeft)>-ch){
+                this.up=e.target.offsetLeft
+                    
+                }
+            },
             subPage: function (e) {
                 let headerMenu = document.querySelectorAll('.menuColor')
                 this.main = false;
@@ -100,7 +145,6 @@ window.onload = () => {
                 let found = /-\d+|\d+/g;
                 let circleItem = document.querySelectorAll('.circleItem');
                 let circleArr = [];
-                this.transform=true
                 if (e.wheelDelta <= 0) {
                     if (circleItem[0].style.transform != 'rotateY(-280deg) translateZ(30vw) translateY(-40vw)') {
                         for (let i = 0; i < circleItem.length; i++) {
