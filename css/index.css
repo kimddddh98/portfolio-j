@@ -40,8 +40,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: rgb(237, 242, 246);
-  background: radial-gradient(circle, rgb(237, 242, 246) 8%, rgb(138, 170, 229) 78%);
+  background-image: radial-gradient(circle, rgb(237, 242, 246) 8%, rgb(138, 170, 229) 78%);
 }
 
 body::-webkit-scrollbar {
@@ -182,6 +181,7 @@ header ul a {
   -webkit-animation-delay: 2.5s;
           animation-delay: 2.5s;
   transform-style: preserve-3d;
+  font-family: "Cormorant SC", serif;
 }
 #menu #circle .cube > div {
   width: 16.5vw;
@@ -323,18 +323,18 @@ header ul a {
   height: 30vw;
   opacity: 0.9;
   transition: 1s;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#menu .circleItem p {
+  font-size: 3vw;
+  color: #fefefe;
+  font-family: "Cormorant SC", serif;
 }
 #menu .circleItem img {
   width: 100%;
   height: 100%;
-}
-#menu .circleItem .circleTop {
-  position: absolute;
-  width: 100%;
-  top: -3vw;
 }
 
 .v-enter-active,
@@ -404,34 +404,35 @@ header ul a {
 #full > div {
   width: 100vw;
   height: 100vh;
-  background-color: #fefefe;
+  background-image: radial-gradient(circle, rgb(237, 242, 246) 8%, rgb(138, 170, 229) 78%);
   transition: all 0.4s;
   overflow: hidden;
 }
 #full #project {
-  width: 500vw;
+  width: 500%;
   height: 100%;
   display: flex;
   align-items: center;
   cursor: -webkit-grabbing;
   cursor: grabbing;
-  color: #8AAAE5;
+  color: #fefefe;
 }
 #full #project li {
-  width: 100vw;
+  width: 20%;
   height: 95%;
-  display: flex;
   flex-direction: column;
   align-self: flex-end;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
 }
 #full #project li > h2 {
   text-align: center;
   font-size: 2vw;
+  padding: 20px;
 }
 #full #project li > div {
-  width: 90%;
-  height: 90%;
-  border: 5px solid #8AAAE5;
+  width: 90vw;
+  height: 85%;
+  border: 3px solid #fefefe;
 }

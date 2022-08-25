@@ -5,12 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>KIM</title>
     <link rel="stylesheet" href="css/index.css">
-    <!-- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
-    <!-- <script src="https://threejs.org/build/three.min.js"></script> -->
     <script src="js/index.js"></script>
 
 </head>
@@ -36,6 +34,7 @@
             <div id="full" v-show="sub" @wheel.prevent="subWheel">
                 <!-- <div v-for="(item,index) in circleStyle" :key="item"class="full">{{index}}</div> -->
                 <div class="full" id="outer">
+                     
                     <ul id="project" @mousedown="mDown" @mouseup="mUp" @mousemove="mMove">
                         <li id="project1" class="moveI">
                             <h2>Project-1</h2>
@@ -62,8 +61,9 @@
                             <div>
                             </div>
                         </li>
+                      
                     </ul>
-
+                    
                 </div>
                 <div class="full">
 
@@ -108,36 +108,38 @@
                     <!-- <div v-for="(item,index) in circleStyle" @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="item" :key="item" >{{index}} </div> -->
                     <!-- <div v-for="(item,index) in circleStyle" @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="item" :key="item" >{{index}} </div> -->
                     <transition name="fade">
-                        <div @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem"
+                        <div @click="subPage" class="circleItem"
                             :style="circleStyle[0]" v-if="transform">
                             <menu-name menuname="Project"></menu-name>
                         </div>
                     </transition>
                     <transition name="fade">
-                        <div @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem"
+                        <div @click="subPage" class="circleItem"
                             :style="circleStyle[1]" v-if="transform">
                             <menu-name menuname="About Me"></menu-name>
-
                         </div>
                     </transition>
 
                     <transition name="fade">
-                        <div @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem"
+                        <div @click="subPage" class="circleItem"
                             :style="circleStyle[2]" v-if="transform">
                             <menu-name menuname="Skill"></menu-name>
+
                         </div>
                     </transition>
                     <transition name="fade">
-                        <div @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem"
+                        <div @click="subPage" class="circleItem"
                             :style="circleStyle[3]" v-if="transform">
                             <menu-name menuname="Contact"></menu-name>
+
                         </div>
                     </transition>
 
                     <transition name="fade">
-                        <div @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem"
+                        <div @click="subPage" class="circleItem"
                             :style="circleStyle[4]" v-if="transform">
                             <menu-name menuname="More"></menu-name>
+
                         </div>
                     </transition>
 

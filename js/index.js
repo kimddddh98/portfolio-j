@@ -1,14 +1,13 @@
 window.onload = () => {
     let circleTop = {
 
-        template: '<p class="circleTop" :style="{color:homeColor,fontSize:homeFont}">{{menuname}}</p>',
+        template: '<p class="circleTop" :style="{fontSize:homeFont}">{{menuname}}</p>',
         props: {
             menuname: String
         },
         data(){
             return {
-                homeColor:'#fefefe',
-                homeFont:'2vw'
+                homeFont:'3vw'
             }
         },
         created() {
@@ -34,11 +33,11 @@ window.onload = () => {
             header: false,
             // load: true,
             circleStyle: [
-                { transform: "rotateY(0deg) translateZ(30vw) translateY(0vw)", backgroundImage : `url(./img/music.png)` },
-                { transform: "rotateY(70deg) translateZ(30vw) translateY(10vw)", backgroundImage : `url(./img/dogroom.png)`  },
-                { transform: "rotateY(140deg) translateZ(30vw) translateY(20vw)", backgroundImage : `url(./img/ajax.png)`},
-                { transform: "rotateY(210deg) translateZ(30vw) translateY(30vw)", backgroundImage : `url(./img/everland.png)` },
-                { transform: "rotateY(280deg) translateZ(30vw) translateY(40vw)", backgroundImage : `url(./img/ez.png)` },
+                { transform: "rotateY(0deg) translateZ(30vw) translateY(0vw)", backgroundImage: 'linear-gradient(-225deg, #7DE2FC 0%, #B9B6E5 100%)'},
+                { transform: "rotateY(70deg) translateZ(30vw) translateY(10vw)",backgroundImage:' linear-gradient(120deg,#8ec5fc 0%,#e0c3fc 100%) '},
+                { transform: "rotateY(140deg) translateZ(30vw) translateY(20vw)",backgroundImage:'linear-gradient(to top, #9795f0 0%, #fbc8d4 100%)'},
+                { transform: "rotateY(210deg) translateZ(30vw) translateY(30vw)",backgroundImage: 'linear-gradient(-225deg, #A8BFFF 0%, #884D80 100%)'},
+                { transform: "rotateY(280deg) translateZ(30vw) translateY(40vw)",backgroundImage:' linear-gradient(to top, #505285 0%, #585e92 12%, #65689f 25%, #7474b0 37%, #7e7ebb 50%, #8389c7 62%, #9795d4 75%, #a2a1dc 87%, #b5aee4 100%)' },
             ],
             click: 0,
             transform:false,
@@ -82,7 +81,6 @@ window.onload = () => {
                 if (!this.press) return
                 e.preventDefault()
                 innerUl.style.marginLeft=e.offsetX-this.startx+'px'
-                // console.log()
                 if(parseInt(innerUl.style.marginLeft)>0){
                     innerUl.style.marginLeft='0px'
                 }
@@ -97,8 +95,8 @@ window.onload = () => {
             subPage: function (e) {
                 let headerMenu = document.querySelectorAll('.menuColor')
                 this.main = false;
-                this.transform=false,
-
+                this.transform=false
+                // document.querySelector('body').style.backgroundImage='none'
                 setTimeout(()=>{
                     this.header = true
                     this.sub = true
@@ -118,26 +116,6 @@ window.onload = () => {
                         return this.click = i
                     }
                 }
-            },
-            circleOver(e) {
-                // let found = /-\d+|\d+/g;
-                // let transfromArr=[]
-                // let circleItem=document.querySelectorAll('.circleItem')
-
-                // for(let i in this.circleStyle){
-                //     transfromArr.push(circleItem[i].style.transform.match(found))
-                // }
-                // circleItem[0].style.transform=`rotateY(${parseInt(transfromArr[0][0])}deg) translateZ(${parseInt(transfromArr[0][1])}vw) translateY(${parseInt(transfromArr[0][2])}vw) scale(110%)`
-            },
-            circleOut(e) {
-                // let found = /-\d+|\d+/g;
-                // let transfromArr=[]
-                // let circleItem=document.querySelectorAll('.circleItem')
-
-                // for(let i in this.circleStyle){
-                //     transfromArr.push(circleItem[i].style.transform.match(found))
-                // }
-                // circleItem[0].style.transform=`rotateY(${parseInt(transfromArr[0][0])}deg) translateZ(${parseInt(transfromArr[0][1])}vw) translateY(${parseInt(transfromArr[0][2])}vw)`
             },
             mainWheel: function (e) {
                 let found = /-\d+|\d+/g;
@@ -163,6 +141,8 @@ window.onload = () => {
                 }
             },
             subWheel(e) {
+                document.querySelector('body').style.background='#fefefe'
+
                 if (!this.timer) {
                     this.timer = setTimeout(() => {
                         this.timer = null;
@@ -232,6 +212,7 @@ window.onload = () => {
                 e.preventDefault()
                 this.header = false
                 this.main = true;
+                document.querySelector('body').style.background='radial-gradient(circle, rgba(237,242,246,1) 8%, rgba(138,170,229,1) 78%)'
                 setTimeout(()=>{
                     this.transform=true
 
