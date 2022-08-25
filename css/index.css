@@ -151,7 +151,7 @@ header ul a {
   display: flex;
   justify-content: space-between;
   font-family: "Nosifer", cursive;
-  font-size: 3vw;
+  font-size: 2vw;
 }
 #container #main-text > div:nth-of-type(2) {
   align-self: flex-end;
@@ -278,41 +278,41 @@ header ul a {
 }
 #menu #circle .cube .one {
   transform: translateX(16.5vw) translateZ(8.25vw);
-  -webkit-animation: scale1 2s both;
-          animation: scale1 2s both;
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
+  -webkit-animation: scale1 1.5s both;
+          animation: scale1 1.5s both;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
 }
 #menu #circle .cube .two {
   transform: translateZ(8.25vw);
 }
 #menu #circle .cube .three {
   transform: translateX(-16.5vw) translateZ(8.25vw);
-  -webkit-animation: scale2 2s both;
-          animation: scale2 2s both;
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
+  -webkit-animation: scale2 1.5s both;
+          animation: scale2 1.5s both;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
 }
 #menu #circle .cube .four {
   transform: translateY(-16.5vw) translateZ(8.25vw);
-  -webkit-animation: scale4 2s both;
-          animation: scale4 2s both;
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
+  -webkit-animation: scale4 1.5s both;
+          animation: scale4 1.5s both;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
 }
 #menu #circle .cube .five {
   transform: translateY(16.5vw) translateZ(8.25vw);
-  -webkit-animation: scale5 2s both;
-          animation: scale5 2s both;
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
+  -webkit-animation: scale5 1.5s both;
+          animation: scale5 1.5s both;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
 }
 #menu #circle .cube .six {
   transform: translateY(33vw) translateZ(8.25vw);
-  -webkit-animation: scale6 2s both;
-          animation: scale6 2s both;
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
+  -webkit-animation: scale6 1.5s both;
+          animation: scale6 1.5s both;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
 }
 #menu .circleItem {
   cursor: pointer;
@@ -415,12 +415,23 @@ header ul a {
   align-items: center;
   cursor: -webkit-grabbing;
   cursor: grabbing;
+  color: #8AAAE5;
 }
 #full #project li {
   width: 100vw;
-  height: 80%;
-  background-color: lightskyblue;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  align-items: center;
+  justify-content: space-around;
 }
-#full #project li:nth-of-type(even) {
-  background-color: aquamarine;
+#full #project li > h2 {
+  text-align: center;
+  font-size: 2vw;
+}
+#full #project li > div {
+  width: 90%;
+  height: 90%;
+  border: 5px solid #8AAAE5;
 }

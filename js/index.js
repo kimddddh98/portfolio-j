@@ -20,19 +20,19 @@ window.onload = () => {
     new Vue({
         el: '#app',
         mounted:function(){
-            setTimeout(()=>{
-                this.load=false
-                this.main=true
-            },2000)
+            // setTimeout(()=>{
+            //     this.load=false
+            //     this.main=true
+            // },2000)
             setTimeout(()=>{
                 this.transform=true
-            },5000)
+            },2500)
         },
         data: {
-            main: false,
+            main: true,
             sub: false,
             header: false,
-            load: true,
+            // load: true,
             circleStyle: [
                 { transform: "rotateY(0deg) translateZ(30vw) translateY(0vw)", backgroundImage : `url(./img/music.png)` },
                 { transform: "rotateY(70deg) translateZ(30vw) translateY(10vw)", backgroundImage : `url(./img/dogroom.png)`  },
@@ -45,7 +45,8 @@ window.onload = () => {
             press:false,
             startx:null,
             up:null,
-            projectI:0
+            projectI:0,
+            moveI:0
         },
         components: {
             'menu-name': circleTop
@@ -60,16 +61,17 @@ window.onload = () => {
             },
             mUp(){
                 this.press=false
-                console.log(this.up)
                 let innerUl=document.querySelector('#project');
                 innerUl.style.transition='0.5s'
                 if(this.up<0){
                     this.projectI++
+                    this.moveI++
                     innerUl.style.marginLeft=-100*this.projectI+'vw'
                     this.up=null
                 }
                 else if(this.up>0){
                     this.projectI--
+                    this.moveI--
                     innerUl.style.marginLeft=-100*this.projectI+'vw'
                     this.up=null
                 }
@@ -88,8 +90,8 @@ window.onload = () => {
                     innerUl.style.marginLeft=-ch+'px'
                 }
                 if(parseInt(innerUl.style.marginLeft)<=0 || parseInt(innerUl.style.marginLeft)>-ch){
-                this.up=e.target.offsetLeft
-                    
+                this.up=document.querySelectorAll('.moveI')[this.moveI].offsetLeft
+                    console.log(document.querySelectorAll('.moveI')[this.moveI].offsetLeft)
                 }
             },
             subPage: function (e) {
@@ -116,9 +118,6 @@ window.onload = () => {
                         return this.click = i
                     }
                 }
-            },
-            down(e){
-                console.log(e)
             },
             circleOver(e) {
                 // let found = /-\d+|\d+/g;
@@ -230,12 +229,13 @@ window.onload = () => {
                 }
             },
             home(e) {
+                e.preventDefault()
                 this.header = false
                 this.main = true;
                 setTimeout(()=>{
                     this.transform=true
 
-                },3000)
+                },2500)
 
                 this.sub = false;
                 let headerMenu = document.querySelectorAll('.menuColor')
@@ -245,6 +245,8 @@ window.onload = () => {
                 e.target.style.color = '#8AAAE5'
             },
             section(e) {
+                e.preventDefault()
+
                 let full = document.getElementById('full')
                 let fullbox = document.querySelectorAll('.full')
                 let headerMenu = document.querySelectorAll('.menuColor')

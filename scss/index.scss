@@ -14,16 +14,13 @@ $color: #fefefe;
 // $mainFont: 'Prata', serif;
 // $mainFont:  'Cormorant SC', serif;
 // $mainFont: 'Fugaz One', cursive;
-// $mainFont: 'Finger Paint', cursive;
+// $mainFont: 'Finger Paint', cursive; 
 $mainFont: 'Nosifer', cursive;
 @mixin flexCenter {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-
-
 @keyframes spin {
 
     from {
@@ -141,7 +138,7 @@ header {
         display: flex;
         justify-content: space-between;
         font-family: $mainFont;
-        font-size: 3vw;
+        font-size: 2vw;
     
         &>div:nth-of-type(2) {
             align-self: flex-end;
@@ -229,9 +226,9 @@ header {
                 }
             }
             .one {
-                    transform: translateX(16.5vw) translateZ(8.25vw);
-                    animation: scale1 2s both;
-                animation-delay: 1.5s;
+                transform: translateX(16.5vw) translateZ(8.25vw);
+                animation: scale1 1.5s both;
+                animation-delay: 0.5s;
             }
     
             .two {
@@ -240,30 +237,30 @@ header {
     
             .three {
                     transform: translateX(-16.5vw) translateZ(8.25vw);
-                    animation: scale2 2s both;
-                animation-delay: 1.5s;
+                    animation: scale2 1.5s both;
+                animation-delay: 0.5s;
                 // animation-delay: 2s;
 
             }
     
             .four {
                 transform: translateY(-16.5vw) translateZ(8.25vw);
-                animation: scale4 2s both;
-                animation-delay: 1.5s;
+                animation: scale4 1.5s both;
+                animation-delay: 0.5s;
 
             }
     
             .five {
                     transform: translateY(16.5vw) translateZ(8.25vw);
-                animation: scale5 2s both;
-                animation-delay: 1.5s;
+                animation: scale5 1.5s both;
+                animation-delay: 0.5s;
 
             }
     
             .six {
                     transform: translateY(33vw) translateZ(8.25vw);
-                animation: scale6 2s both;
-                animation-delay: 1.5s;
+                animation: scale6 1.5s both;
+                animation-delay: 0.5s;
 
             }
         }
@@ -355,12 +352,30 @@ header {
         display: flex;
         align-items: center;
         cursor: grabbing;
+        color: $bg;
         li {
             width: 100vw;
-            height: 80%;
-            background-color:lightskyblue;
-            &:nth-of-type(even){
-                background-color: aquamarine;
+            height: 95%;
+            display: flex;
+            flex-direction: column;
+            align-self: flex-end;
+            align-items: center;
+            justify-content: space-around;
+            &>h2{
+                text-align: center;
+                font-size: 2vw;
+            }
+            &>div{
+                width: 90%;
+                height: 90%;
+                // background-color: aqua;
+                border: 5px solid $bg;
+                // &>div{
+                //     width: 50%;
+                //     // border: 1px solid black;
+                //     height: 90%;
+                //     background-color: aquamarine;
+                // }
             }
         }
         

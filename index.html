@@ -37,35 +37,30 @@
                 <!-- <div v-for="(item,index) in circleStyle" :key="item"class="full">{{index}}</div> -->
                 <div class="full" id="outer">
                     <ul id="project" @mousedown="mDown" @mouseup="mUp" @mousemove="mMove">
-                        <li id="project1">
+                        <li id="project1" class="moveI">
+                            <h2>Project-1</h2>
                             <div>
-                                <h2>Project-1</h2>
                             </div>
-                            <div></div>
                         </li>
-                        <li>
+                        <li class="moveI">
+                            <h2>Project-2</h2>
                             <div>
-                                <h2>Project-2</h2>
                             </div>
-                            <div></div>
                         </li>
-                        <li>
+                        <li class="moveI">
+                            <h2>Project-3</h2>
                             <div>
-                                <h2>Project-3</h2>
                             </div>
-                            <div></div>
                         </li>
-                        <li>
+                        <li class="moveI">
+                            <h2>Project-4</h2>
                             <div>
-                                <h2>Project-4</h2>
                             </div>
-                            <div></div>
                         </li>
-                        <li>
+                        <li class="moveI">
+                            <h2>Project-5</h2>
                             <div>
-                                <h2>Project-5</h2>
                             </div>
-                            <div></div>
                         </li>
                     </ul>
 
@@ -151,11 +146,11 @@
                 </div>
             </div>
         </transition>
-        <transition>
+        <!-- <transition>
             <div id="loading" v-show="load">
 
             </div>
-        </transition>
+        </transition> -->
 
     </div>
 
