@@ -1,9 +1,4 @@
 window.onload = () => {
-//     var scene = new THREE.Scene();
-//     var camera = new THREE.PerspectiveCamera( 45, window.innerWidth/window.innerHeight, 0.1, 1000 );
-//     var renderer = new THREE.WebGLRenderer( { antialias: true, preserveDrawingBuffer: true } );
-// renderer.setSize( window.innerWidth, window.innerHeight );
-// document.body.appendChild( renderer.domElement );
     let circleTop = {
 
         template: '<p class="circleTop" :style="{color:homeColor,fontSize:homeFont}">{{menuname}}</p>',
@@ -39,11 +34,11 @@ window.onload = () => {
             header: false,
             load: true,
             circleStyle: [
-                { transform: "rotateY(0deg) translateZ(30vw) translateY(0vw)", backgroundImage : `url(../img/music.png)` },
-                { transform: "rotateY(70deg) translateZ(30vw) translateY(10vw)", backgroundImage : `url(../img/dog.png)` },
-                { transform: "rotateY(140deg) translateZ(30vw) translateY(20vw)", backgroundImage : `url(../img/ajax.png)`},
-                { transform: "rotateY(210deg) translateZ(30vw) translateY(30vw)", backgroundImage : `url(../img/everland.png)` },
-                { transform: "rotateY(280deg) translateZ(30vw) translateY(40vw)", backgroundImage : `url(../img/ez.png)` },
+                { transform: "rotateY(0deg) translateZ(30vw) translateY(0vw)", backgroundImage : `url(~/../img/music.png)` },
+                { transform: "rotateY(70deg) translateZ(30vw) translateY(10vw)", backgroundImage : `url(~/../img/dog.png)` },
+                { transform: "rotateY(140deg) translateZ(30vw) translateY(20vw)", backgroundImage : `url(~/../img/ajax.png)`},
+                { transform: "rotateY(210deg) translateZ(30vw) translateY(30vw)", backgroundImage : `url(~/../img/everland.png)` },
+                { transform: "rotateY(280deg) translateZ(30vw) translateY(40vw)", backgroundImage : `url(~/../img/ez.png)` },
             ],
             click: 0,
             transform:false,
