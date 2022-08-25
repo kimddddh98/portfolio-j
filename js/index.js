@@ -39,7 +39,7 @@ window.onload = () => {
             header: false,
             load: true,
             circleStyle: [
-                { transform: "rotateY(0deg) translateZ(30vw) translateY(0vw)", backgroundImage : "url('../img/music.png')" },
+                { transform: "rotateY(0deg) translateZ(30vw) translateY(0vw)", backgroundImage : 'url("../img/music.png")' },
                 { transform: "rotateY(70deg) translateZ(30vw) translateY(10vw)", backgroundImage : "url('../img/dog.png')" },
                 { transform: "rotateY(140deg) translateZ(30vw) translateY(20vw)", backgroundImage : "url('../img/ajax.png')"},
                 { transform: "rotateY(210deg) translateZ(30vw) translateY(30vw)", backgroundImage : "url('../img/everland.png')" },
