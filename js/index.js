@@ -231,12 +231,8 @@ window.onload = () => {
                             }
 
                         }
-
-
                     }, 200)
                 }
-
-
             },
             home(e) {
                 this.header = false
