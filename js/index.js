@@ -1,6 +1,5 @@
 window.onload = () => {
     let circleTop = {
-
         template: '<p class="circleTop" :style="{fontSize:homeFont}">{{menuname}}</p>',
         props: {
             menuname: String
@@ -12,17 +11,13 @@ window.onload = () => {
         },
         created() {
             if (this.menuname == null) {
-                this.menuname = '2'
+                this.menuname = 'content'
             }
         }
     }
     new Vue({
         el: '#app',
         mounted:function(){
-            // setTimeout(()=>{
-            //     this.load=false
-            //     this.main=true
-            // },2000)
             setTimeout(()=>{
                 this.transform=true
             },2500)
@@ -31,7 +26,6 @@ window.onload = () => {
             main: true,
             sub: false,
             header: false,
-            // load: true,
             circleStyle: [
                 { transform: "rotateY(0deg) translateZ(30vw) translateY(0vw)", backgroundImage: 'linear-gradient(-225deg, #7DE2FC 0%, #B9B6E5 100%)'},
                 { transform: "rotateY(70deg) translateZ(30vw) translateY(10vw)",backgroundImage:' linear-gradient(120deg,#8ec5fc 0%,#e0c3fc 100%) '},
@@ -39,6 +33,7 @@ window.onload = () => {
                 { transform: "rotateY(210deg) translateZ(30vw) translateY(30vw)",backgroundImage: 'linear-gradient(-225deg, #A8BFFF 0%, #884D80 100%)'},
                 { transform: "rotateY(280deg) translateZ(30vw) translateY(40vw)",backgroundImage:' linear-gradient(to top, #505285 0%, #585e92 12%, #65689f 25%, #7474b0 37%, #7e7ebb 50%, #8389c7 62%, #9795d4 75%, #a2a1dc 87%, #b5aee4 100%)' },
             ],
+            navName: ['Project', 'About Me', 'Skill', 'Contact', 'More'],
             click: 0,
             transform:false,
             press:false,
@@ -57,7 +52,6 @@ window.onload = () => {
                 this.press=true
                 this.startx=e.offsetX - innerUl.offsetLeft
                 innerUl.style.transition='none'
-
             },
             mUp(){
                 this.press=false
@@ -96,16 +90,15 @@ window.onload = () => {
                 let headerMenu = document.querySelectorAll('.menuColor')
                 this.main = false;
                 this.transform=false
-                // document.querySelector('body').style.backgroundImage='none'
                 setTimeout(()=>{
                     this.header = true
                     this.sub = true
                     project.style.width=this.circleStyle.length*100 +'%'
                     full.style.width=this.circleStyle.length*100 +'vw'
                 },500)
-                for (let h = 0; h < headerMenu.length; h++) {
-                    headerMenu[h].style.color = this.headerColor
-                }
+                // for (let h = 0; h < headerMenu.length; h++) {
+                //     headerMenu[h].style.color = this.headerColor
+                // }
                 for (let i = 0; i < document.querySelectorAll('.circleItem').length; i++) {
                     if (e.target == document.querySelectorAll('.circleItem')[i]) {
                         full.style.width = 100 * this.circleStyle.length + 'vw'
@@ -113,7 +106,7 @@ window.onload = () => {
                             full.style.left = -100*i+'vw'
                             headerMenu[i + 1].style.color = '#8AAAE5'
                             headerMenu[i + 1].parentNode.style.backgroundColor = '#fefefe'
-                        }, 0)
+                        }, 500)
                         return this.click = i
                     }
                 }
@@ -127,7 +120,7 @@ window.onload = () => {
                         for (let i = 0; i < circleItem.length; i++) {
                             circleArr.push(circleItem[i].style.transform.match(found))
                             circleItem[i].style.transform =
-                                `rotateY(${parseInt(circleArr[i][0]) - 35}deg) translateZ(30vw) translateY(${parseInt(circleArr[i][2]) - 5}vw)`
+                            `rotateY(${parseInt(circleArr[i][0]) - 35}deg) translateZ(30vw) translateY(${parseInt(circleArr[i][2]) - 5}vw)`
                         }
                     }
                 }
@@ -136,13 +129,12 @@ window.onload = () => {
                         for (let i = 0; i < circleItem.length; i++) {
                             circleArr.push(circleItem[i].style.transform.match(found))
                             circleItem[i].style.transform =
-                                `rotateY(${parseInt(circleArr[i][0]) + 35}deg) translateZ(30vw) translateY(${parseInt(circleArr[i][2]) + 5}vw)`
+                            `rotateY(${parseInt(circleArr[i][0]) + 35}deg) translateZ(30vw) translateY(${parseInt(circleArr[i][2]) + 5}vw)`
                         }
                     }
                 }
             },
             subWheel(e) {
-                // document.querySelector('body').style.background='#fefefe'
                 if (!this.timer) {
                     this.timer = setTimeout(() => {
                         this.timer = null;
@@ -211,7 +203,6 @@ window.onload = () => {
                 e.preventDefault()
                 this.header = false
                 this.main = true;
-                // document.querySelector('body').style.background='radial-gradient(circle, rgba(237,242,246,1) 8%, rgba(138,170,229,1) 78%)'
                 setTimeout(()=>{
                     this.transform=true
 
@@ -226,7 +217,6 @@ window.onload = () => {
             },
             section(e) {
                 e.preventDefault()
-
                 let full = document.getElementById('full')
                 let fullbox = document.querySelectorAll('.full')
                 let headerMenu = document.querySelectorAll('.menuColor')
@@ -250,8 +240,6 @@ window.onload = () => {
                     }
                 }, 600)
             }
-          
         }
-
     })
 }

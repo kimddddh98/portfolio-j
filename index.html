@@ -21,12 +21,19 @@
             leave-active-class="animated fadeOutUp">
             <header v-show="header">
                 <ul>
-                    <li><a href="#" @click="home" class="menuColor">Home</a></li>
-                    <li><a href="#" @click="section" class="menuColor">Project</a></li>
-                    <li><a href="#" @click="section" class="menuColor">About Me</a></li>
-                    <li><a href="#" @click="section" class="menuColor">Skill</a></li>
-                    <li><a href="#" @click="section" class="menuColor">Contact</a></li>
-                    <li><a href="#" @click="section" class="menuColor">More</a></li>
+                    <li id="header-cube"><a href="#" @click="home" class="menuColor">
+                        <div class="one">home</div>
+                        <div class="two">home</div>
+                        <div class="three">home</div>
+                        <div class="four">home</div>
+                        <div class="five">home</div>
+                        <div class="six">home</div>
+                    </a></li>
+                    <li><a href="#" @click="section" class="menuColor">{{navName[0]}}</a></li>
+                    <li><a href="#" @click="section" class="menuColor">{{navName[1]}}</a></li>
+                    <li><a href="#" @click="section" class="menuColor">{{navName[2]}}</a></li>
+                    <li><a href="#" @click="section" class="menuColor">{{navName[3]}}</a></li>
+                    <li><a href="#" @click="section" class="menuColor">{{navName[4]}}</a></li>
                 </ul>
             </header>
         </transition>
@@ -37,27 +44,29 @@
                      
                     <ul id="project" @mousedown="mDown" @mouseup="mUp" @mousemove="mMove">
                         <li id="project1" class="moveI">
-                            <h2>Project-1</h2>
+                            <h2>{{navName[0]}}-1</h2>
+                            <div>
+                                <div class="project-text"></div>
+                                <div class="project-img"><img src="img/music.png" alt=""></div>
+                            </div>
+                        </li>
+                        <li class="moveI">
+                            <h2>{{navName[0]}}-2</h2>
                             <div>
                             </div>
                         </li>
                         <li class="moveI">
-                            <h2>Project-2</h2>
+                            <h2>{{navName[0]}}-3</h2>
                             <div>
                             </div>
                         </li>
                         <li class="moveI">
-                            <h2>Project-3</h2>
+                            <h2>{{navName[0]}}-4</h2>
                             <div>
                             </div>
                         </li>
                         <li class="moveI">
-                            <h2>Project-4</h2>
-                            <div>
-                            </div>
-                        </li>
-                        <li class="moveI">
-                            <h2>Project-5</h2>
+                            <h2>{{navName[0]}}-5</h2>
                             <div>
                             </div>
                         </li>
@@ -66,11 +75,29 @@
                     
                 </div>
                 <div class="full">
-
+                    <div>
+                        <h2>{{navName[1]}}</h2>
+                        <div></div>
+                    </div>
                 </div>
-                <div class="full">skill</div>
-                <div class="full">Contact</div>
-                <div class="full">more</div>
+                <div class="full">
+                    <div>
+                        <h2>{{navName[2]}}</h2>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="full">
+                    <div>
+                        <h2>{{navName[3]}}</h2>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="full">
+                    <div>
+                        <h2>{{navName[4]}}</h2>
+                        <div></div>
+                    </div>
+                </div>
             </div>
         </transition>
 
@@ -110,27 +137,27 @@
                     <transition name="fade">
                         <div @click="subPage" class="circleItem"
                             :style="circleStyle[0]" v-if="transform">
-                            <menu-name menuname="Project"></menu-name>
+                            <menu-name :menuname="navName[0]"></menu-name>
                         </div>
                     </transition>
                     <transition name="fade">
                         <div @click="subPage" class="circleItem"
                             :style="circleStyle[1]" v-if="transform">
-                            <menu-name menuname="About Me"></menu-name>
+                            <menu-name :menuname="navName[1]"></menu-name>
                         </div>
                     </transition>
 
                     <transition name="fade">
                         <div @click="subPage" class="circleItem"
                             :style="circleStyle[2]" v-if="transform">
-                            <menu-name menuname="Skill"></menu-name>
+                            <menu-name :menuname="navName[2]"></menu-name>
 
                         </div>
                     </transition>
                     <transition name="fade">
                         <div @click="subPage" class="circleItem"
                             :style="circleStyle[3]" v-if="transform">
-                            <menu-name menuname="Contact"></menu-name>
+                            <menu-name :menuname="navName[3]"></menu-name>
 
                         </div>
                     </transition>
@@ -138,7 +165,7 @@
                     <transition name="fade">
                         <div @click="subPage" class="circleItem"
                             :style="circleStyle[4]" v-if="transform">
-                            <menu-name menuname="More"></menu-name>
+                            <menu-name :menuname="navName[4]"></menu-name>
 
                         </div>
                     </transition>
@@ -148,12 +175,6 @@
                 </div>
             </div>
         </transition>
-        <!-- <transition>
-            <div id="loading" v-show="load">
-
-            </div>
-        </transition> -->
-
     </div>
 
 
