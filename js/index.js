@@ -45,7 +45,8 @@ window.onload = () => {
             startx:null,
             up:null,
             projectI:0,
-            moveI:0
+            moveI:0,
+            headerColor: '#fefefe'
         },
         components: {
             'menu-name': circleTop
@@ -89,7 +90,6 @@ window.onload = () => {
                 }
                 if(parseInt(innerUl.style.marginLeft)<=0 || parseInt(innerUl.style.marginLeft)>-ch){
                 this.up=document.querySelectorAll('.moveI')[this.moveI].offsetLeft
-                    console.log(document.querySelectorAll('.moveI')[this.moveI].offsetLeft)
                 }
             },
             subPage: function (e) {
@@ -100,18 +100,19 @@ window.onload = () => {
                 setTimeout(()=>{
                     this.header = true
                     this.sub = true
+                    project.style.width=this.circleStyle.length*100 +'%'
+                    full.style.width=this.circleStyle.length*100 +'vw'
                 },500)
                 for (let h = 0; h < headerMenu.length; h++) {
-                    headerMenu[h].style.color = '#DCE2F0'
+                    headerMenu[h].style.color = this.headerColor
                 }
                 for (let i = 0; i < document.querySelectorAll('.circleItem').length; i++) {
                     if (e.target == document.querySelectorAll('.circleItem')[i]) {
                         full.style.width = 100 * this.circleStyle.length + 'vw'
                         setTimeout(() => {
-                            const offset = document.querySelectorAll('.full')[1].offsetWidth;
                             full.style.left = -100*i+'vw'
-                            // full.style.left = -offset * i + 'px'
                             headerMenu[i + 1].style.color = '#8AAAE5'
+                            headerMenu[i + 1].parentNode.style.backgroundColor = '#fefefe'
                         }, 0)
                         return this.click = i
                     }
@@ -141,16 +142,13 @@ window.onload = () => {
                 }
             },
             subWheel(e) {
-                document.querySelector('body').style.background='#fefefe'
-
+                // document.querySelector('body').style.background='#fefefe'
                 if (!this.timer) {
                     this.timer = setTimeout(() => {
                         this.timer = null;
                         const fullbox = document.querySelectorAll('.full');
                         const full = document.getElementById('full');
                         const bodyTop = window.document.querySelector('body').scrollTop
-                        console.log()
-                        // && bodyTop >= -fullbox[0].offsetTop - 100
                         let headerMenu = document.querySelectorAll('.menuColor')
                         if (e.wheelDelta <= 0) {
                             if (this.click != fullbox.length - 1 && this.click < fullbox.length - 1 ) {
@@ -161,9 +159,12 @@ window.onload = () => {
                                 this.click == fullbox.length
                                 if (this.click < headerMenu.length - 2) {
                                     for (let h = 0; h < headerMenu.length; h++) {
-                                        headerMenu[h].style.color = '#DCE2F0'
+                                        headerMenu[h].style.color = this.headerColor
+                                        headerMenu[h].parentNode.style.backgroundColor = 'transparent'
+
                                     }
                                     headerMenu[this.click + 2].style.color = '#8AAAE5'
+                                    headerMenu[this.click + 2].parentNode.style.backgroundColor = '#fefefe'
 
                                 }
                                 full.style.left = -100 * (this.click + 1) + 'vw'
@@ -175,8 +176,6 @@ window.onload = () => {
                                     return this.click + 1 >= fullbox.length - 1 ? this.click = fullbox.length - 1 : this.click++
                                 }, 600)
                             }
-                            // }
-
                         }
                         else {
                             if (bodyTop <= 0) {
@@ -185,14 +184,14 @@ window.onload = () => {
                                         fullbox[i].style.width = 90 + 'vw'
                                         fullbox[i].style.height = 85 + 'vh'
                                     }
-                                    // headerMenu[this.click].style.color='red'
-                                    // if(this.click<headerMenu.length-2){
                                     for (let h = 0; h < headerMenu.length; h++) {
-                                        headerMenu[h].style.color = '#DCE2F0'
+                                        headerMenu[h].style.color = this.headerColor
+                                        headerMenu[h].parentNode.style.backgroundColor = 'transparent'
+
                                     }
                                     headerMenu[this.click].style.color = '#8AAAE5'
-
-                                    // }
+                                    headerMenu[this.click].parentNode.style.backgroundColor = '#fefefe'
+                                    
                                     full.style.left = -100 * (this.click - 1) + 'vw'
                                     setTimeout(() => {
                                         for (let i = 0; i < fullbox.length; i++) {
@@ -212,18 +211,18 @@ window.onload = () => {
                 e.preventDefault()
                 this.header = false
                 this.main = true;
-                document.querySelector('body').style.background='radial-gradient(circle, rgba(237,242,246,1) 8%, rgba(138,170,229,1) 78%)'
+                // document.querySelector('body').style.background='radial-gradient(circle, rgba(237,242,246,1) 8%, rgba(138,170,229,1) 78%)'
                 setTimeout(()=>{
                     this.transform=true
 
                 },2500)
-
                 this.sub = false;
                 let headerMenu = document.querySelectorAll('.menuColor')
                 for (let h = 0; h < headerMenu.length; h++) {
-                    headerMenu[h].style.color = '#DCE2F0'
+                    headerMenu[h].style.color = this.headerColor
+                    headerMenu[h].parentNode.style.backgroundColor = 'transparent'
+
                 }
-                e.target.style.color = '#8AAAE5'
             },
             section(e) {
                 e.preventDefault()
@@ -232,8 +231,10 @@ window.onload = () => {
                 let fullbox = document.querySelectorAll('.full')
                 let headerMenu = document.querySelectorAll('.menuColor')
                 for (let h = 0; h < headerMenu.length; h++) {
-                    headerMenu[h].style.color = '#DCE2F0'
+                    headerMenu[h].style.color = this.headerColor
+                    headerMenu[h].parentNode.style.backgroundColor = 'transparent'
                     e.target.style.color = '#8AAAE5'
+                    e.target.parentNode.style.backgroundColor = '#fefefe'
                     if (headerMenu[h].style.color == 'rgb(138, 170, 229)')
                         this.click = h - 1
                 }
