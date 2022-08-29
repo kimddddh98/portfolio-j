@@ -119,7 +119,7 @@ header ul {
 header ul li {
   width: 11vw;
   text-align: center;
-  padding: 0.8vw 0;
+  padding: 0.5vw 0;
   border: 2px solid #fefefe;
   transform: skewX(-45deg);
 }
