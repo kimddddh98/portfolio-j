@@ -10,7 +10,14 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
     <script src="js/index.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H5RVERX11X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
+        gtag('config', 'G-H5RVERX11X');
+    </script>
 </head>
 
 <body>
@@ -22,13 +29,13 @@
             <header v-show="header">
                 <ul>
                     <li id="header-cube"><a href="#" @click="home" class="menuColor">
-                        <div class="one">home</div>
-                        <div class="two">home</div>
-                        <div class="three">home</div>
-                        <div class="four">home</div>
-                        <div class="five">home</div>
-                        <div class="six">home</div>
-                    </a></li>
+                            <div class="one">home</div>
+                            <div class="two">home</div>
+                            <div class="three">home</div>
+                            <div class="four">home</div>
+                            <div class="five">home</div>
+                            <div class="six">home</div>
+                        </a></li>
                     <li><a href="#" @click="section" class="menuColor">{{navName[0]}}</a></li>
                     <li><a href="#" @click="section" class="menuColor">{{navName[1]}}</a></li>
                     <li><a href="#" @click="section" class="menuColor">{{navName[2]}}</a></li>
@@ -41,13 +48,17 @@
             <div id="full" v-show="sub" @wheel.prevent="subWheel">
                 <!-- <div v-for="(item,index) in circleStyle" :key="item"class="full">{{index}}</div> -->
                 <div class="full" id="outer">
-                     
+
                     <ul id="project" @mousedown="mDown" @mouseup="mUp" @mousemove="mMove">
                         <li id="project1" class="moveI">
                             <h2>{{navName[0]}}-1</h2>
                             <div>
-                                <div class="project-text"></div>
-                                <div class="project-img"><img src="img/music.png" alt=""></div>
+                                <div class="project-text">
+
+                                </div>
+                                <div class="project-img">
+                                    <!-- <img src="img/music.png" alt=""> -->
+                                </div>
                             </div>
                         </li>
                         <li class="moveI">
@@ -70,9 +81,9 @@
                             <div>
                             </div>
                         </li>
-                      
+
                     </ul>
-                    
+
                 </div>
                 <div class="full">
                     <div>
@@ -135,36 +146,31 @@
                     <!-- <div v-for="(item,index) in circleStyle" @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="item" :key="item" >{{index}} </div> -->
                     <!-- <div v-for="(item,index) in circleStyle" @click="subPage" @mouseover="circleOver" @mouseout="circleOut" class="circleItem" :style="item" :key="item" >{{index}} </div> -->
                     <transition name="fade">
-                        <div @click="subPage" class="circleItem"
-                            :style="circleStyle[0]" v-if="transform">
+                        <div @click="subPage" class="circleItem" :style="circleStyle[0]" v-if="transform">
                             <menu-name :menuname="navName[0]"></menu-name>
                         </div>
                     </transition>
                     <transition name="fade">
-                        <div @click="subPage" class="circleItem"
-                            :style="circleStyle[1]" v-if="transform">
+                        <div @click="subPage" class="circleItem" :style="circleStyle[1]" v-if="transform">
                             <menu-name :menuname="navName[1]"></menu-name>
                         </div>
                     </transition>
 
                     <transition name="fade">
-                        <div @click="subPage" class="circleItem"
-                            :style="circleStyle[2]" v-if="transform">
+                        <div @click="subPage" class="circleItem" :style="circleStyle[2]" v-if="transform">
                             <menu-name :menuname="navName[2]"></menu-name>
 
                         </div>
                     </transition>
                     <transition name="fade">
-                        <div @click="subPage" class="circleItem"
-                            :style="circleStyle[3]" v-if="transform">
+                        <div @click="subPage" class="circleItem" :style="circleStyle[3]" v-if="transform">
                             <menu-name :menuname="navName[3]"></menu-name>
 
                         </div>
                     </transition>
 
                     <transition name="fade">
-                        <div @click="subPage" class="circleItem"
-                            :style="circleStyle[4]" v-if="transform">
+                        <div @click="subPage" class="circleItem" :style="circleStyle[4]" v-if="transform">
                             <menu-name :menuname="navName[4]"></menu-name>
 
                         </div>
@@ -176,7 +182,6 @@
             </div>
         </transition>
     </div>
-
 
 </body>
 

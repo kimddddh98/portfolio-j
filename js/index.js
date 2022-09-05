@@ -140,7 +140,7 @@ window.onload = () => {
                         this.timer = null;
                         const fullbox = document.querySelectorAll('.full');
                         const full = document.getElementById('full');
-                        const bodyTop = window.document.querySelector('body').scrollTop
+                        // const bodyTop = window.document.querySelector('body').scrollTop
                         let headerMenu = document.querySelectorAll('.menuColor')
                         if (e.wheelDelta <= 0) {
                             if (this.click != fullbox.length - 1 && this.click < fullbox.length - 1 ) {
@@ -153,7 +153,6 @@ window.onload = () => {
                                     for (let h = 0; h < headerMenu.length; h++) {
                                         headerMenu[h].style.color = this.headerColor
                                         headerMenu[h].parentNode.style.backgroundColor = 'transparent'
-
                                     }
                                     headerMenu[this.click + 2].style.color = '#8AAAE5'
                                     headerMenu[this.click + 2].parentNode.style.backgroundColor = '#fefefe'
@@ -170,7 +169,6 @@ window.onload = () => {
                             }
                         }
                         else {
-                            if (bodyTop <= 0) {
                                 if (this.click != 0 && this.click > 0) {
                                     for (let i = 0; i < fullbox.length; i++) {
                                         fullbox[i].style.width = 90 + 'vw'
@@ -193,8 +191,6 @@ window.onload = () => {
                                         return this.click <= 0 ? this.click = 0 : this.click--
                                     }, 600)
                                 }
-                            }
-
                         }
                     }, 200)
                 }
